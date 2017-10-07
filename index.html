@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" media="all" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" media="all" href="css/fonts.css"/>
         <link rel="stylesheet" type="text/css" media="all" href="css/redfoot.css"/>
+        <link rel="stylesheet" type="text/css" media="all" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -23,12 +24,9 @@
 
         <script type="text/javascript" src="js/redfoot.js"></script>
 
-        <script>
-
+        <script type="text/javascript">
             _rf = new Redfoot();
             $(document).ready(function(){
-                //_rf.run();
-
                 $("input[type=tel]").mask("(99) 9999-9999?9");
             });
         </script>
@@ -37,6 +35,7 @@
         <div id="header" class="page-header"><a href="/" class="col"><h1><span>Redfoot Community</span></h1></a></div>
         <div id="contanier">
             <div class="container">
+                    <div class="alert alert-info" id="status" style="display: none"></div>
 
                     <h2 class="col-sm-3 text-white">Manifesto Redfoot</h2>
 
@@ -60,9 +59,19 @@
 
                     <h2 class="col-sm-7 text-white">Entre em contato como quiser:</h2>
 
+                    <div class="container">
+                        <div class="col-sm-12">
+                            <a href="mailto:contato@redfootbrasil.org"><p class="text-white"><i class="fa fa-envelope"></i> contato@redfootbrasil.org</p></a>
+                        </div>
+                        <div class="col-sm-2 inline-block">
+                            <a href="https://www.facebook.com/groups/redfoot/" style="margin-right: 20px;" target="_blank"><label class="text-white"><i class="fa fa-facebook"></i></label></a>
+                            <a href="https://www.linkedin.com/company/10948337/" target="_blank"><label class="text-white"><i class="fa fa-linkedin"></i></label></a>
+                        </div>
+                    </div>
+
                     <div id="fh5co-contact" data-section="contact">
                         <div class="container">
-                            <form method="post" action="forms/form.php" role="form">
+                            <form method="post" id="form" action="forms/mail.php" role="form">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -94,7 +103,7 @@
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="submit" name="submit" value="ENVIAR" class=" hvr-push btn btn-primary btn-outline">
+                                            <button type="button" class=" hvr-push btn btn-primary btn-outline" onclick="_rf.run();">Enviar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -112,8 +121,8 @@
                 <div class="row text-center">
                     <p class="col-sm-12">Site desenvolvido em parceria com</p>
                     <ul class="list-unstyled">
-                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Marca.svg/50px-Marca.svg.png" width="50"/></li>
-                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Marca.svg/50px-Marca.svg.png" width="50"/></li>
+                        <li><div style="background: #f2f2f2; width: 100px; height: 50px; display: inline-block;"></div></li>
+                        <li><div style="background: #f2f2f2; width: 100px; height: 50px; display: inline-block;"></div></li>
                     </ul>
                 </div>
             </div>
