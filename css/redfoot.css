@@ -76,4 +76,18 @@ textarea:-moz-placeholder { color:#fff !important; }
     width: 100%;
 }
 
-#contanier textarea { height: 200px; }
+#contanier textarea { height: 200px;  }
+
+.socials-form a{ margin-right: 10px; ;  }
+
+.social{ width: 200px; margin: 10px auto; }
+
+.social h2{ font-size : 16px;  margin: 0 !important }
+
+.social{  margin-top : 10px; }
+
+.social a { margin-right: 15px; }
+
+.social a i{ font-size : 40px; color :  #ff5050 }
+
+.btn span { display: inline-block; margin-top: 15px; }
