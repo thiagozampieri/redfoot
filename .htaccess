@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+RewriteBase /redfoot/
+
+
+## Redirecionamento para o parametro P do GET na index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [NC,L,QSA]
+</IfModule>

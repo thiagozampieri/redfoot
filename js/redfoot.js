@@ -13,7 +13,7 @@ var Redfoot = function(){
 
         if(name != '' & email != '' & phone != '') {
             window.scrollTo(0, 0);
-            jQuery.post('forms/mail.php', {
+            jQuery.post('app/forms/mail.php', {
                 name: name,
                 email: email,
                 phone: phone,

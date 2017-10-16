@@ -8,7 +8,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/autoload.php';
-//require 'PHPMailerAutoload.php';
 
 $mail = new PHPMailer;
 
@@ -25,8 +24,9 @@ $mail->Port = 465;                                    // TCP port to connect to
 //$mail->setFrom($mail->Username, 'Redfoot Community');
 $mail->From       = $mail->Username;
 $mail->FromName   = "Redfoot Community";
+$mail->addAddress('redfootbrasil@gmail.com', 'Redfoot Community');     // Add a recipient
 //$mail->addAddress('contato@redfootbrasil.org', 'Redfoot Community');     // Add a recipient
-$mail->addAddress('thiago.zampieri@gmail.com');               // Name is optional
+//$mail->addAddress('thiago.zampieri@gmail.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
 //$mail->addBCC('bcc@example.com');
