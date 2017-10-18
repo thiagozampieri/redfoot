@@ -58,7 +58,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
             <div class="row">
                 <div class="col-sm-6 inline-block "><input type="password" name="password" placeholder="Senha"
-                                                           class="form-control cpf" required/></div>
+                                                           class="form-control " required/></div>
                 <div class="col-sm-6 inline-block "><input type="password" name="confirm_password" placeholder="Confirmar senha"
                                                            class="form-control" required/>
                 </div>

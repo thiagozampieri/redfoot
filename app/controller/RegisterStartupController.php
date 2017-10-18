@@ -72,11 +72,11 @@ class RegisterStartupController
                     $entrepeneur = new Entrepreneur();
                     $entrepeneur->name = $data->ent_name;
                     $entrepeneur->email = $data->ent_email;
-                    $entrepeneur->document1 = $data->ent_document1;
+                    $entrepeneur->document1 = Util::onlyNumbers($data->ent_document1);
                     $entrepeneur->graduation = $data->graduation;
                     $entrepeneur->voluntary = $data->voluntary;
                     $entrepeneur->password = md5($data->password);
-                    $entrepeneur->startup_id = $data->startup_id;
+                    $entrepeneur->startup_id = $startup->id;
                     $entrepeneur->save();
 
                     $address = new Address();

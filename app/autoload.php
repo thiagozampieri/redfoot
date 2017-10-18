@@ -15,7 +15,7 @@ include "models/Startup.php";
 include "models/Business.php";
 include "models/Investment.php";
 include "models/Address.php";
-include "models/Entrepeneur.php";
+include "models/Entrepreneur.php";
 
 
 include "helpers/Util.php";
