@@ -23,6 +23,49 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
         <form class="col-sm-12 register-form center-align" enctype="multipart/form-data" method="POST" action="">
             <input type="hidden" name="action" value="save"/>
 
+
+            <h3>Dados pessoais </h3>
+            <hr/>
+
+
+            <div class="row">
+                <div class="col-sm-6 inline-block "><input type="text" name="ent_name" placeholder="Nome"
+                                                           class="form-control" required/></div>
+                <div class="col-sm-6 inline-block "><input type="email" name="ent_email" placeholder="Email"
+                                                           class="form-control" required/>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-6 inline-block "><input type="text" name="ent_document1" placeholder="CPF"
+                                                           class="form-control cpf" required/></div>
+                <div class="col-sm-6 inline-block "><input type="text" name="graduation" placeholder="Graduação"
+                                                           class="form-control" required/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 inline-block">
+                    <label> Gostaria de ser voluntário Redfoot ?</label>
+                    <select id="voluntary" name="voluntary" class="form-control">
+                        <option value="0">Não</option>
+                        <option value="1">Sim</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-6 inline-block "><input type="password" name="password" placeholder="Senha"
+                                                           class="form-control cpf" required/></div>
+                <div class="col-sm-6 inline-block "><input type="password" name="confirm_password" placeholder="Confirmar senha"
+                                                           class="form-control" required/>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
             <h3>Dados da startup </h3>
 
             <hr/>
@@ -154,9 +197,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
             <br/>
             <br/>
-
             <h3>O negócio </h3>
-
             <hr/>
 
 

@@ -26,12 +26,12 @@ class RegisterStartupController
     {
         $data = new stdClass();
         $v_keys = array_keys($_POST);
+        
         foreach($v_keys as $key)
         {
             if($key != 'action')
             $data->$key = htmlspecialchars($_POST[$key]);
         }
-
 
 
         $uploaddir = 'media/';
@@ -42,6 +42,8 @@ class RegisterStartupController
 
             $startup = Startup::where(array('name' => $data->name));
             if($startup->count() <= 0 & $data->name != '') {
+
+                if($data->password == $data->confirm_password){
                 $startup = new Startup();
                 $startup->name = $data->name;
                 $startup->url = $data->url;
@@ -66,6 +68,17 @@ class RegisterStartupController
                 $startup->save();
 
                 if($startup->id > 0) {
+
+                    $entrepeneur = new Entrepreneur();
+                    $entrepeneur->name = $data->ent_name;
+                    $entrepeneur->email = $data->ent_email;
+                    $entrepeneur->document1 = $data->ent_document1;
+                    $entrepeneur->graduation = $data->graduation;
+                    $entrepeneur->voluntary = $data->voluntary;
+                    $entrepeneur->password = md5($data->password);
+                    $entrepeneur->startup_id = $data->startup_id;
+                    $entrepeneur->save();
+
                     $address = new Address();
                     $address->startup_id = $startup->id;
                     $address->type = 1;
@@ -99,7 +112,11 @@ class RegisterStartupController
                     $startup = Startup::find($startup->id);
                     $startup->destroy();
                 }
+
                 Message::msgSuccess("Cadastrado com Sucesso");
+                }else{
+                    Message::msgError("As senhas não combinam");
+                }
             } else {
                 Message::msgError("Não foi possível cadastrar");
             }
