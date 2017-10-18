@@ -28,10 +28,18 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
             <hr/>
 
             <div class="row">
+                <div class="col-md-12">
+                    <label>Logo da startup</label><br/>
+                    <div class="inline-block "><input type="file" name="file" placeholder="Logo da Startup" class="form-control" required/></div>
+
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col-sm-6 inline-block "><input type="text" name="name" placeholder="Nome da Startup"
-                                                           class="form-control"/></div>
+                                                           class="form-control" required/></div>
                 <div class="col-sm-6 inline-block "><input type="text" name="url" placeholder="Site "
-                                                           class="form-control"/>
+                                                           class="form-control" required/>
                 </div>
             </div>
 
@@ -144,9 +152,13 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
             </div>
 
+            <br/>
+            <br/>
+
             <h3>O negócio </h3>
 
             <hr/>
+
 
             <div class="row">
                 <div class="col-sm-6 inline-block ">
@@ -248,14 +260,158 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
             </div>
 
 
+            <div class="row">
+                <div class="col-sm-6 inline-block ">
+                    <label> Momento atual </label>
+                    <select id="current_moment" name="current_moment" class="form-control" required>
+                        <option>Selecione...</option>
+                        <option value="0">Estou vendendo e ganhando escala</option>
+                        <option value="1">O MVP está pronto e sendo validado com o mercado</option>
+                        <option value="2">Estou na fase de operação: desenvolvendo minha solução e estudando o mercado
+                        </option>
+                        <option value="3">Estou apenas com a ideia, mas ainda pretendo avançar com o modelo de negócio
+                        </option>
+                        <option value="4">Foi descontinuado e não pretendo avançar com o projeto</option>
+                    </select>
+
+                </div>
+
+                <div class="col-sm-6 inline-block ">
+                    <label> Público alvo principal </label>
+                    <select id="target_audience" name="target_audience" class="form-control" required>
+                        <option>Selecione...</option>
+                        <option value="0">B2B</option>
+                        <option value="1">B2C</option>
+                        <option value="2">C2C</option>
+                        <option value="2">B2G</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-6 inline-block ">
+                    <label> Modelo de Negócios </label>
+                    <select id="business_model" name="business_model" class="form-control" required>
+                        <option>Selecione...</option>
+                        <option value="0">SAAS (Software as a service)</option>
+                        <option value="1">Aplicativo</option>
+                        <option value="2">Marketplace</option>
+                        <option value="3">Software ou Hardware</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-sm-6 inline-block ">
+                    <label> Modelo de receita </label>
+                    <select id="revenue_model" name="revenue_model" class="form-control" required>
+                        <option>Selecione...</option>
+                        <option value="0">Premium (pagou, levou)</option>
+                        <option value="1">Freemium (parte gratís, parte paga)</option>
+                        <option value="2">Assinatura</option>
+                        <option value="2">Publicidade</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <br/>
+            <br/>
+
+            <h3>Investimento </h3>
+
+            <hr/>
+
+
+            <div class="row">
+                <div class="col-sm-6 inline-block ">
+                    <label> Sua startup já recebeu investimento? </label>
+                    <select id="is_invested" name="is_invested" class="form-control" required>
+                        <option>Selecione...</option>
+                        <option value="0">Não</option>
+                        <option value="1">Sim</option>
+                    </select>
+
+                </div>
+
+                <div class="col-sm-6 inline-block ">
+                    <label> Busca investimento para avanço da startup?</label>
+                    <select id="looking_for_investment" name="looking_for_investment" class="form-control" required>
+                        <option>Selecione...</option>
+                        <option value="0">No momento não, pretendo trabalhar com recursos próprios</option>
+                        <option value="1">Sim, mas caso não aconteça continuarei com recursos próprios</option>
+                        <option value="2"> Sim, sem investimento não tenho como perseverar.</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 inline-block ">
+                    <label> No caso de ser investido, como pretende aplicar o recurso?
+                    </label>
+                    <select id="investment_data" name="investment_data" class="form-control" required>
+                        <option>Selecione...</option>
+                        <option value="0">Aplicar em marketing para aquisição de clientes </option>
+                        <option value="1">Pretendo aumentar minha equipe</option>
+                        <option value="2">Vou investir em pesquisa e desenvolvimento que melhore meu produto/serviço</option>
+                        <option value="3">Melhoria de processo e ganho de performance</option>
+                        <option value="4">Cursos, capacitações e eventos de networking</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <br/>
+            <br/>
+
+            <h3>Localização </h3>
+
+            <hr/>
+
+
+            <div class="row">
+                <div class="col-sm-4 inline-block "><input type="text" name="zipcode" placeholder="CEP"
+                                                           class="form-control cep" required/></div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-8 inline-block "><input type="text" name="street" placeholder="Endereço"
+                                                           class="form-control " required/></div>
+
+                <div class="col-sm-4 inline-block "><input type="text" name="number" placeholder="Número"
+                                                           class="form-control " required/></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 inline-block "><input type="text" name="complement" placeholder="Complemento"
+                                                           class="form-control " /></div>
+
+                <div class="col-sm-6 inline-block "><input type="text" name="neighborhood" placeholder="Bairro"
+                                                          class="form-control " required/></div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-6 inline-block "><input type="text" name="city" placeholder="Cidade"
+                                                           class="form-control " required /></div>
+            </div>
+
 
             <br style="clear:both;"/>
 
-            <!-- 
-            <div class="col-sm-3 inline-block "><input type="file" name="file" placeholder="Logo da Startup" class="form-control"/></div>
-            -->
-            <div class="col-sm-4 inline-block ">
-                <button class="btn btn-info" type="submit">Enviar</button>
+
+
+            <div class="row ">
+                <button class="btn btn-info col-md-12" type="submit">Enviar</button>
             </div>
 
         </form>

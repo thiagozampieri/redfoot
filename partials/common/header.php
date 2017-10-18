@@ -28,8 +28,8 @@
         _rf = new Redfoot();
         $(document).ready(function(){
             $("input[type=tel]").mask("(99) 9999-9999?9");
-
             $(".date").mask("99/99/9999");
+            $(".cep").mask("99999-999");
             $(".cnpj").mask("99.999.999/9999-99");
         });
     </script>

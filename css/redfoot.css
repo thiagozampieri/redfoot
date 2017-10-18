@@ -91,14 +91,12 @@ textarea:-moz-placeholder { color:#fff !important; }
 
 .btn span { display: inline-block; margin-top: 15px; }
 
-
 #fh5co-startup-register .row{ margin-bottom: 25px; }
 
-#fh5co-startup-register h3{ color : #fff }
+#fh5co-startup-register h3{ color : #fff; font-size: 40px; }
 
 #fh5co-startup-register #contanier{ padding: 40px; }
 
 #fh5co-startup-register label{ color : #fff; font-size : 20px; }
-
 
 #fh5co-startup-register label.options{ color : #fff; font-size : 12px; }

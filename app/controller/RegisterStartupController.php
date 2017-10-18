@@ -32,6 +32,8 @@ class RegisterStartupController
             $data->$key = htmlspecialchars($_POST[$key]);
         }
 
+
+
         $uploaddir = 'media/';
         $image_path = $uploaddir . md5(basename($_FILES['file']['name'])).basename($_FILES['file']['name']);
 
@@ -45,11 +47,11 @@ class RegisterStartupController
                 $startup->url = $data->url;
                 $startup->partners_number = intval($data->partners_number);
                 $startup->employees_number = intval($data->employees_number);
-                $startup->start_date = $data->start_date;
-                $startup->is_formalized = boolval($data->is_formalized);
+                $startup->start_date = Util::formatDate($data->start_date);
+                $startup->is_formalized = intval($data->is_formalized);
                 $startup->fullname = $data->fullname;
-                $startup->document1 = $data->document1;
-                $startup->foundation_date = $data->foundation_date;
+                $startup->document1 = Util::onlyNumbers($data->document1);
+                $startup->foundation_date = Util::formatDate($data->foundation_date);
                 $startup->reason_formalized = $data->reason_formalized;
                 $startup->contact_name = $data->contact_name;
                 $startup->email = $data->email;
@@ -59,7 +61,7 @@ class RegisterStartupController
                 $startup->needs_text = $data->needs_text;
                 $startup->image_path = $image_path;
                 $startup->created_date = date('Y-m-d H:i:s');
-                $startup->status = false;
+                $startup->status = 0;
 
                 $startup->save();
 
@@ -71,7 +73,7 @@ class RegisterStartupController
                     $address->number = $data->number;
                     $address->complement = $data->complement;
                     $address->neighborhood = $data->neighborhood;
-                    $address->zipcode = $data->zipcode;
+                    $address->zipcode = Util::onlyNumbers($data->zipcode);
                     $address->city = $data->city;
                     $address->uf = $data->uf;
                     $address->save();
@@ -88,7 +90,7 @@ class RegisterStartupController
 
                     $investment = new Investment();
                     $investment->startup_id = $startup->id;
-                    $investment->is_invested = boolval($data->is_invested);
+                    $investment->is_invested = intval($data->is_invested);
                     $investment->looking_for_investment = intval($data->looking_for_investment);
                     $investment->investment_data = json_encode($data->looking_for_investment);
                     $investment->save();
