@@ -16,7 +16,7 @@
                     <p class="text-justify text-white">Se você possui um modelo de negócios inovador, repetível, escalável ou quer fortalecer o ecossistema de startups da região, queremos contar com você.</p>
                 </div>
                 <div class="col-sm-12">
-                    <center><a class="btn btn-info" target="_blank" href="#google-form"><h5 class="text-nowrap">Clique e faça parte!</h5></a></center>
+                    <center><a class="btn btn-info" target="_blank" href="<?php Config::getUrlBase() ?>/startup/register"><h5 class="text-nowrap">Clique e faça parte!</h5></a></center>
                 </div>
             </div>
         </div>

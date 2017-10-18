@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" media="all" href="<?=Config::getUrlBase()?>bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" media="all" href="<?=Config::getUrlBase()?>css/fonts.css"/>
+
     <link rel="stylesheet" type="text/css" media="all" href="<?=Config::getUrlBase()?>css/redfoot.css"/>
     <link rel="stylesheet" type="text/css" media="all" href="<?=Config::getUrlBase()?>bower_components/popper.js/docs/css/font-awesome.min.css"/>
     <script type="text/javascript" src="<?=Config::getUrlBase()?>bower_components/jquery/dist/jquery.min.js"></script>
@@ -28,6 +28,9 @@
         _rf = new Redfoot();
         $(document).ready(function(){
             $("input[type=tel]").mask("(99) 9999-9999?9");
+
+            $(".date").mask("99/99/9999");
+            $(".cnpj").mask("99.999.999/9999-99");
         });
     </script>
 </head>

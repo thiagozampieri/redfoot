@@ -3,7 +3,7 @@
 $servername = "localhost";
 $dbname = "redfoot";
 $username = "root";
-$password = "root";
+$password = "";
 
 $con = new PDO("mysql:host=$servername;dbname=$dbname;charset=UTF8", $username, $password);
 

@@ -3,7 +3,7 @@
 <?php Template::getHeader(); ?>
 <?php
     $filename = 'partials/'.$_SERVER['REQUEST_URI'].'.php';
-    if(is_file($filename))  include_once($filename); else include_once('partials/index.html');
+    if(is_file($filename))  include_once($filename); else include_once('partials/index.php');
 
 ?>
 <?php Template::getFooter(); ?>

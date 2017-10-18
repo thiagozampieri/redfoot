@@ -1,4 +1,4 @@
-body { font-family: Gotham-Book;    margin: 0px; font-size: 16px;  }
+body {    margin: 0px; font-size: 16px;  }
 a { cursor: pointer; }
 a label { cursor: pointer; }
 a:hover { text-decoration: none; }
@@ -17,7 +17,7 @@ label { font-size: 30px; }
 #footer ul{ overflow:hidden; margin: auto; }
 #footer li{ display:inline-block; }
 
-h2 { font-size: 60px; font-family: Gotham-Bold; margin-top: 90px; }
+h2 { font-size: 60px; margin-top: 90px; }
 
 .btn { text-transform: uppercase; border-radius: 0px; cursor: pointer; }
 .btn-info { background-color: #fff!important; color: #000!important; border: 0px; }
@@ -50,17 +50,16 @@ h2 { font-size: 60px; font-family: Gotham-Bold; margin-top: 90px; }
         padding: 3em 0;
     }
 }
-#fh5co-contact .form-control {
+.form-control {
     border: none;
     box-shadow: none;
     border-bottom: 1px solid #fff;
-    color: #fff;;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     -ms-border-radius: 0;
     border-radius: 0;
 }
-#fh5co-contact .form-control:active, #fh5co-contact .form-control:focus {
+.form-control:active, #fh5co-contact .form-control:focus {
     border-bottom: 1px solid #fff;
 }
 
@@ -91,3 +90,15 @@ textarea:-moz-placeholder { color:#fff !important; }
 .social a i{ font-size : 40px; color :  #ff5050 }
 
 .btn span { display: inline-block; margin-top: 15px; }
+
+
+#fh5co-startup-register .row{ margin-bottom: 25px; }
+
+#fh5co-startup-register h3{ color : #fff }
+
+#fh5co-startup-register #contanier{ padding: 40px; }
+
+#fh5co-startup-register label{ color : #fff; font-size : 20px; }
+
+
+#fh5co-startup-register label.options{ color : #fff; font-size : 12px; }
