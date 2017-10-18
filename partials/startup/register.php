@@ -466,9 +466,11 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
             if ($(this).val() == 1) {
                 $('#only_formalized').show();
                 $('#not_formalized').hide();
+                $('#reason_formalized').removeAttr('required');
             } else {
                 $('#not_formalized').show();
                 $('#only_formalized').hide();
+                $('#reason_formalized').attr('required', true);
             }
         })
     });

@@ -54,7 +54,7 @@ class RegisterStartupController
                 $startup->fullname = $data->fullname;
                 $startup->document1 = Util::onlyNumbers($data->document1);
                 $startup->foundation_date = Util::formatDate($data->foundation_date);
-                $startup->reason_formalized = $data->reason_formalized;
+                $startup->reason_formalized = $data->reason_formalized ?  $data->reason_formalized : 0;
                 $startup->contact_name = $data->contact_name;
                 $startup->email = $data->email;
                 $startup->phone = $data->phone;
