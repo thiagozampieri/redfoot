@@ -1,3 +1,49 @@
+<?php include "../../app/autoload.php"; ?>
+
+<?php
+$ic = new IndexController();
+?>
+
+<script type="application/javascript">
+
+    function initMap() {
+        var local = {lat: -23.2927, lng: -51.1732};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: local
+        });
+
+        var infoWindow = new google.maps.InfoWindow();
+
+        var markers = locations.map(function (location, i) {
+
+            console.log(location.coordinates);
+            var marker = new google.maps.Marker({
+                position: location.coordinates,
+                //icon: location.icon,
+                image: location.icon,
+                label: location.label,
+                title: location.label
+            });
+            marker.addListener('click', function() {
+                var markerContent = '<div id="content"><img src="'+this.image+'"/></div>';
+                infoWindow.setContent(markerContent);
+                infoWindow.open(map, this);
+            });
+
+            return marker;
+        });
+
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+    }
+    var locations = <?=json_encode($ic->getCoordinates())?>;
+
+
+</script>
+<div id="map"></div>
 
 <div id="contanier">
     <div class="container">
@@ -16,7 +62,7 @@
                     <p class="text-justify text-white">Se você possui um modelo de negócios inovador, repetível, escalável ou quer fortalecer o ecossistema de startups da região, queremos contar com você.</p>
                 </div>
                 <div class="col-sm-12">
-                    <center><a class="btn btn-info" target="_blank" href="<?php Config::getUrlBase() ?>/startup/register"><h5 class="text-nowrap">Clique e faça parte!</h5></a></center>
+                    <center><a class="btn btn-info" href="<?php echo Config::getUrlBase() ?>startup/register"><h5 class="text-nowrap">Clique e faça parte!</h5></a></center>
                 </div>
             </div>
         </div>
@@ -73,7 +119,7 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <button type="button" class=" hvr-push btn btn-primary btn-outline" onclick="_rf.run();"><span>Enviar</span></button>
+                                <button type="button" class=" hvr-push btn btn-primary btn-outline" onclick="_rf.contact();"><span>Enviar</span></button>
                             </div>
                         </div>
                     </div>

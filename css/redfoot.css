@@ -100,3 +100,9 @@ textarea:-moz-placeholder { color:#fff !important; }
 #fh5co-startup-register label{ color : #fff; font-size : 20px; }
 
 #fh5co-startup-register label.options{ color : #fff; font-size : 12px; }
+
+#map {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+}

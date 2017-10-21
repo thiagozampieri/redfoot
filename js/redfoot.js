@@ -3,7 +3,7 @@
  */
 var Redfoot = function(){
 
-    this.run = function(){
+    this.contact = function(){
         var name = $("input[name=name]").val();
         var email = $("input[name=email]").val();
         var phone = $("input[name=phone]").val();
@@ -26,5 +26,9 @@ var Redfoot = function(){
         {
             alert('Todos os campos são importantes');
         }
+    }
+
+    this.map = function(){
+
     }
 }

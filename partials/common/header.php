@@ -24,6 +24,12 @@
 
     <script type="text/javascript" src="<?=Config::getUrlBase()?>js/redfoot.js"></script>
 
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=<?=Config::getGoogleMapsKey()?>&callback=initMap">
+    </script>
+
     <script type="text/javascript">
         _rf = new Redfoot();
         $(document).ready(function(){

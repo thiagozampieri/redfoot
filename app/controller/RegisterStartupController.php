@@ -89,6 +89,12 @@ class RegisterStartupController
                     $address->zipcode = Util::onlyNumbers($data->zipcode);
                     $address->city = $data->city;
                     $address->uf = $data->uf;
+
+                    $geolocation = Geolocation::getByAddress($address);
+                    //print_r($geolocation); exit();
+                    $address->lat = $geolocation->lat;
+                    $address->lng = $geolocation->lng;
+
                     $address->save();
 
                     $business = new Business();
