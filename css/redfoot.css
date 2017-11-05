@@ -106,3 +106,15 @@ textarea:-moz-placeholder { color:#fff !important; }
     height: 400px;
     background-color: grey;
 }
+
+#counter {
+    display: block;
+    width: 100%;
+    background: #ff5050;
+}
+#counter ul { list-style: none; display: inline-flex; }
+#counter ul li { border-left: 1px solid black; }
+#counter ul li label { color: #fff; font-size: 0.9em;  }
+#counter ul li span { color: #000; font-size: 0.9em;  }
+#counter ul li div { color: #fff; font-size: 2.4em; }
+

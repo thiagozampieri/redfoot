@@ -9,11 +9,61 @@
 class IndexController
 {
     private $_data = array();
+    private $counter = null;
 
     public function __construct()
     {
         self::getPointsOfStartups();
+        self::getCountersOfDatas();
+    }
 
+    public function getCountersOfDatas()
+    {
+        $entrepreneurs = Entrepreneur::all()->count();
+        $startups = Startup::where(array('status' => true))->count();
+        $companies = Startup::where(array('status' => true, 'is_formalized' => true))->count();
+
+        $cities = 0;
+        $l_cities = Address::all();
+        $_cities = array();
+        while($v_cities = $l_cities->next())
+        {
+            if(!isset($_cities[$v_cities->uf][$v_cities->city]))
+            {
+                $cities++;
+                $_cities[$v_cities->uf][$v_cities->city] = true;
+            }
+        }
+
+        $markets = 0;
+        $l_startups = Business::all();
+        $_startups = array();
+        while($v_startups = $l_startups->next())
+        {
+            if(!isset($_startups[$v_startups->main_market]))
+            {
+                $markets++;
+                $_startups[$v_startups->main_market] = true;
+            }
+        }
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://graph.facebook.com/v2.10/RedfootStartups/events?access_token=EAACEdEose0cBAK6gG8F3Ig1ag1jxZBVotfAMn6RBbCNnFalZCJD1PvVJqACgWPB98NyRdZCEPpqGnOYZAZC2aP0q38yLLBitw22vR7pz0SvyFYkvXOrZAmdrqeaFJsHhmouFvyeZA8JxIaVdJKw99flcdZBrTsooIDDLoNYkt3ewsXQ9Hq6DHiMZAuEDHIrptuPYZD");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = json_decode(curl_exec($ch));
+        curl_close($ch);
+        $meetups = sizeof($output->data);
+
+        $counter = new stdClass();
+
+        $counter->entrepreneurs = $entrepreneurs;
+        $counter->startups = $startups;
+        $counter->companies = $companies;
+        $counter->cities = $cities;
+        $counter->markets = $markets;
+        $counter->meetups = $meetups;
+
+        $this->counter = $counter;
     }
 
     public function getPointsOfStartups()
@@ -61,7 +111,6 @@ class IndexController
         return $this;
     }
 
-
     public function getCoordinates()
     {
         $_data = array();
@@ -71,5 +120,10 @@ class IndexController
         }
 
         return $this->_data;
+    }
+
+    public function getCounters()
+    {
+        return $this->counter;
     }
 }

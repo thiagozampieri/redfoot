@@ -13,6 +13,7 @@ $ic = new IndexController();
             center: local
         });
 
+        var bounds = new google.maps.LatLngBounds();
         var infoWindow = new google.maps.InfoWindow();
 
         var markers = locations.map(function (location, i) {
@@ -25,8 +26,12 @@ $ic = new IndexController();
                 label: location.label,
                 title: location.label
             });
+
+            //extend the bounds to include each marker's position
+            bounds.extend(marker.position);
+
             marker.addListener('click', function() {
-                var markerContent = '<div id="content"><img src="'+this.image+'"/></div>';
+                var markerContent = '<div id="content"><div class="col-sm-2"><img src="'+this.image+'" width="100"/></div><label class="col-sm-10">'+this.title+'</label><div class="col-sm-12"></div></div>';
                 infoWindow.setContent(markerContent);
                 infoWindow.open(map, this);
             });
@@ -34,6 +39,14 @@ $ic = new IndexController();
             return marker;
         });
 
+        //now fit the map to the newly inclusive bounds
+        map.fitBounds(bounds);
+
+        //(optional) restore the zoom level after the map is done scaling
+        var listener = google.maps.event.addListener(map, "idle", function () {
+            map.setZoom(13);
+            google.maps.event.removeListener(listener);
+        });
 
         // Add a marker clusterer to manage the markers.
         var markerCluster = new MarkerClusterer(map, markers,
@@ -44,6 +57,41 @@ $ic = new IndexController();
 
 </script>
 <div id="map"></div>
+
+<div id="counter">
+    <ul class="col-sm-12">
+        <li class="col-sm-2">
+            <label class="col-sm-12">Profissionais</label>
+            <span class="col-sm-12">participando</span>
+            <div class="col-sm-12"><?php echo $ic->getCounters()->entrepreneurs?></div>
+        </li>
+        <li class="col-sm-2">
+            <label class="col-sm-12">Startups</label>
+            <span class="col-sm-12">cadastradas</span>
+            <div class="col-sm-12"><?php echo $ic->getCounters()->startups?></div>
+        </li>
+        <li class="col-sm-2">
+            <label class="col-sm-12">Empresas</label>
+            <span class="col-sm-12">no ecossistema</span>
+            <div class="col-sm-12"><?php echo $ic->getCounters()->companies?></div>
+        </li>
+        <li class="col-sm-2">
+            <label class="col-sm-12">Cidades</label>
+            <span class="col-sm-12">atuantes</span>
+            <div class="col-sm-12"><?php echo $ic->getCounters()->cities?></div>
+        </li>
+        <li class="col-sm-2">
+            <label class="col-sm-12">Mercados</label>
+            <span class="col-sm-12">atingidos</span>
+            <div class="col-sm-12"><?php echo $ic->getCounters()->markets?></div>
+        </li>
+        <li class="col-sm-2">
+            <label class="col-sm-12">Meetups</label>
+            <span class="col-sm-12">organizados</span>
+            <div class="col-sm-12"><?php echo $ic->getCounters()->meetups?></div>
+        </li>
+    </ul>
+</div>
 
 <div id="contanier">
     <div class="container">
