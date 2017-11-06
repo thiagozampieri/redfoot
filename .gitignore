@@ -2,8 +2,4 @@
 /.idea
 /media/
 .htaccess
-<<<<<<< HEAD
-local.xml
-=======
 app/config/local.xml
->>>>>>> 44a44885be5ce823597f8ed3f13a83e058fa9455
