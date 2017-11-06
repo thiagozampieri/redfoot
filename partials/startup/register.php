@@ -204,7 +204,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
             <div class="row">
                 <div class="col-sm-6 inline-block ">
                     <label> Mercado Principal </label>
-                    <select id="main_market" name="main_market" class="form-control" required>
+                    <select id="main_market" name="main_market" class="form-control select2" required>
                         <option>Selecione...</option>
                         <option value="1">Advertising</option>
                         <option value="2">Agronegócio</option>
@@ -252,7 +252,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
                 <div class="col-sm-6 inline-block ">
                     <label> Mercado Complementar </label>
-                    <select id="complementary_market" name="complementary_market" class="form-control" required>
+                    <select id="complementary_market" name="complementary_market[]" class="form-control select2-multiple" multiple required>
                         <option>Selecione...</option>
                         <option value="1">Advertising</option>
                         <option value="2">Agronegócio</option>
@@ -491,7 +491,11 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 </div>
 
 <script type="text/javascript">
+
+    var last_valid_selection = null;
     $(document).ready(function () {
+
+
         $('#is_formalized').change(function () {
             if ($(this).val() == 1) {
                 $('#only_formalized').show();
