@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<connector>
+    <host>localhost</host>
+    <username>root</username>
+    <password>root</password>
+    <dbname>redfoot</dbname>
+</connector>

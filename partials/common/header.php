@@ -30,6 +30,9 @@
             src="https://maps.googleapis.com/maps/api/js?key=<?=Config::getGoogleMapsKey()?>&callback=initMap">
     </script>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+
     <script type="text/javascript">
         _rf = new Redfoot();
         $(document).ready(function(){
@@ -38,6 +41,11 @@
             $(".cep").mask("99999-999");
             $(".cnpj").mask("99.999.999/9999-99");
             $(".cpf").mask("999.999.999-99");
+
+            $('.select2').select2();
+            $('.select2-multiple').select2({
+                maximumSelectionLength: 2
+            });
         });
     </script>
 </head>
