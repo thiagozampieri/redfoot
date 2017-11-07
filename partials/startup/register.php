@@ -218,7 +218,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                     <select id="complementary_market" name="complementary_market[]" class="form-control select2-multiple" multiple required>
                         <option>Selecione...</option>
                         <?php foreach(StartupHelper::getCategoryOptions() as $key => $option): ?>
-                                <option value="<?= $key ?>"><?= $option[$key]; ?></option>
+                                <option value="<?= $key ?>"><?= $option; ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
