@@ -204,7 +204,6 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
             <div class="row">
                 <div class="col-sm-6 inline-block ">
                     <label> Mercado Principal </label>
-                    <?php print_r(StartupHelper::getCategoryOptions()); ?>
                     <select id="main_market" name="main_market" class="form-control select2" required>
                         <option>Selecione...</option>
 
