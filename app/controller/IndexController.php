@@ -20,8 +20,8 @@ class IndexController
     public function getCountersOfDatas()
     {
         $entrepreneurs = Entrepreneur::all()->count();
-        $startups = Startup::where(array('status' => true))->count();
-        $companies = Startup::where(array('status' => true, 'is_formalized' => true))->count();
+        $startups = StartupHelper::where(array('status' => true))->count();
+        $companies = StartupHelper::where(array('status' => true, 'is_formalized' => true))->count();
 
         $cities = 0;
         $l_cities = Address::all();
@@ -70,7 +70,7 @@ class IndexController
     {
         $_data = array();
 
-        $startups = Startup::where(array(
+        $startups = StartupHelper::where(array(
             'status' => true,
         ));
 

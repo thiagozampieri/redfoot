@@ -206,7 +206,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                     <label> Mercado Principal </label>
                     <select id="main_market" name="main_market" class="form-control select2" required>
                         <option>Selecione...</option>
-                        <?php foreach(Startup::getCategoryOptions() as $key => $option): ?>
+                        <?php foreach(StartupHelper::getCategoryOptions() as $key => $option): ?>
                             <option value="<?= $key ?>"><?= $option[$key]; ?></option>
                         <?php endforeach; ?>
                     </select>
@@ -216,7 +216,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                     <label> Mercado Complementar </label>
                     <select id="complementary_market" name="complementary_market[]" class="form-control select2-multiple" multiple required>
                         <option>Selecione...</option>
-                        <?php foreach(Startup::getCategoryOptions() as $key => $option): ?>
+                        <?php foreach(StartupHelper::getCategoryOptions() as $key => $option): ?>
                                 <option value="<?= $key ?>"><?= $option[$key]; ?></option>
                         <?php endforeach; ?>
                     </select>

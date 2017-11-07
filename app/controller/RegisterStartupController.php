@@ -40,11 +40,11 @@ class RegisterStartupController
         $is_image = move_uploaded_file($_FILES['file']['tmp_name'], $image_path);
         if ($is_image) {
 
-            $startup = Startup::where(array('name' => $data->name));
+            $startup = StartupHelper::where(array('name' => $data->name));
             if($startup->count() <= 0 & $data->name != '') {
 
                 if($data->password == $data->confirm_password){
-                $startup = new Startup();
+                $startup = new StartupHelper();
                 $startup->name = $data->name;
                 $startup->url = $data->url;
                 $startup->partners_number = intval($data->partners_number);
@@ -115,7 +115,7 @@ class RegisterStartupController
                     $investment->save();
                 }
                 else{
-                    $startup = Startup::find($startup->id);
+                    $startup = StartupHelper::find($startup->id);
                     $startup->destroy();
                 }
 
