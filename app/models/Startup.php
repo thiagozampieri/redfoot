@@ -8,9 +8,9 @@ class Startup extends TORM\Model
 }
 
 
-StartupHelper::setTableName('startup');
-StartupHelper::setPK('id');
+Startup::setTableName('startup');
+Startup::setPK('id');
 
-StartupHelper::hasMany("address", array("class_name"=>"address"));
-StartupHelper::hasOne("business", array("class_name"=>"business"));
-StartupHelper::hasOne("investment");
+Startup::hasMany("address", array("class_name"=>"address"));
+Startup::hasOne("business", array("class_name"=>"business"));
+Startup::hasOne("investment");
