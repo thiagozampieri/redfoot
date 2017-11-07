@@ -21,6 +21,7 @@ include "models/Entrepreneur.php";
 
 include "helpers/Geolocation.php";
 include "helpers/Util.php";
+include "helpers/Startup.php";
 include "helpers/Template.php";
 include "helpers/Message.php";
 include "helpers/Redirect.php";

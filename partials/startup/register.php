@@ -206,106 +206,23 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                     <label> Mercado Principal </label>
                     <select id="main_market" name="main_market" class="form-control select2" required>
                         <option>Selecione...</option>
-                        <option value="1">Advertising</option>
-                        <option value="2">Agronegócio</option>
-                        <option value="42">Audivisual<option>
-                        <option value="3">Automobilismo</option>
-                        <option value="4">BigData</option>
-                        <option value="5">Biotecnologia</option>
-                        <option value="6">Casa e Família</option>
-                        <option value="7">Cloud Computing</option>
-                        <option value="8">CRM</option>
-                        <option value="41">Construção</option>
-                        <option value="9">Direito</option>
-                        <option value="10">E-commerce</option>
-                        <option value="11">Educação</option>
-                        <option value="12">Entretenimento</option>
-                        <option value="13">Esportes</option>
-                        <option value="14">Eventos e Turismo</option>
-                        <option value="15">Finanças</option>
-                        <option value="16">Games</option>
-                        <option value="17">Hardware</option>
-                        <option value="18">Infantil</option>
-                        <option value="19">Logística e Mobilidade Urbana</option>
-                        <option value="20">Meio Ambiente</option>
-                        <option value="21">Mobile</option>
-                        <option value="22">Moda e Beleza</option>
-                        <option value="23">Nanotecnologia</option>
-                        <option value="24">Pets</option>
-                        <option value="25">Recrutamento</option>
-                        <option value="26">Recursos Humanos</option>
-                        <option value="27">Saúde e bem-estar</option>
-                        <option value="43">Social</option>
-                        <option value="28">Seguranca e Defesa</option>
-                        <option value="29">Seguros</option>
-                        <option value="30">TIC e Telecom</option>
-                        <option value="31">Transportes</option>
-                        <option value="32">Varejo/Atacado</option>
-                        <option value="33">Vendas e Marketing</option>
-                        <option value="34">Vídeo</option>
-                        <option value="35">Imobiliário</option>
-                        <option value="36">Produtos de Consumo</option>
-                        <option value="37">Serviços Profissionais, científicos ou técnicos</option>
-                        <option value="38">Indústria</option>
-                        <option value="39">Energia</option>
-                        <option value="40">Outros</option>
+                        <?php foreach(Startup::getCategoryOptions() as $key => $option): ?>
+                            <option value="<?= $key ?>"><?= $option[$key]; ?></option>
+                        <?php endforeach; ?>
                     </select>
-
                 </div>
 
                 <div class="col-sm-6 inline-block ">
                     <label> Mercado Complementar </label>
                     <select id="complementary_market" name="complementary_market[]" class="form-control select2-multiple" multiple required>
                         <option>Selecione...</option>
-                        <option value="1">Advertising</option>
-                        <option value="2">Agronegócio</option>
-                        <option value="42">Audivisual<option>
-                        <option value="3">Automobilismo</option>
-                        <option value="4">BigData</option>
-                        <option value="5">Biotecnologia</option>
-                        <option value="6">Casa e Família</option>
-                        <option value="7">Cloud Computing</option>
-                        <option value="8">CRM</option>
-                        <option value="41">Construção</option>
-                        <option value="9">Direito</option>
-                        <option value="10">E-commerce</option>
-                        <option value="11">Educação</option>
-                        <option value="12">Entretenimento</option>
-                        <option value="13">Esportes</option>
-                        <option value="14">Eventos e Turismo</option>
-                        <option value="15">Finanças</option>
-                        <option value="16">Games</option>
-                        <option value="17">Hardware</option>
-                        <option value="18">Infantil</option>
-                        <option value="19">Logística e Mobilidade Urbana</option>
-                        <option value="20">Meio Ambiente</option>
-                        <option value="21">Mobile</option>
-                        <option value="22">Moda e Beleza</option>
-                        <option value="23">Nanotecnologia</option>
-                        <option value="24">Pets</option>
-                        <option value="25">Recrutamento</option>
-                        <option value="26">Recursos Humanos</option>
-                        <option value="27">Saúde e bem-estar</option>
-                        <option value="43">Social</option>
-                        <option value="28">Seguranca e Defesa</option>
-                        <option value="29">Seguros</option>
-                        <option value="30">TIC e Telecom</option>
-                        <option value="31">Transportes</option>
-                        <option value="32">Varejo/Atacado</option>
-                        <option value="33">Vendas e Marketing</option>
-                        <option value="34">Vídeo</option>
-                        <option value="35">Imobiliário</option>
-                        <option value="36">Produtos de Consumo</option>
-                        <option value="37">Serviços Profissionais, científicos ou técnicos</option>
-                        <option value="38">Indústria</option>
-                        <option value="39">Energia</option>
-                        <option value="40">Outros</option>
+                        <?php foreach(Startup::getCategoryOptions() as $key => $option): ?>
+                                <option value="<?= $key ?>"><?= $option[$key]; ?></option>
+                        <?php endforeach; ?>
                     </select>
-
                 </div>
 
             </div>
-
 
             <div class="row">
                 <div class="col-sm-6 inline-block ">
