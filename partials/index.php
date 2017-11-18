@@ -59,33 +59,33 @@ $ic = new IndexController();
 <div id="map"></div>
 
 <div id="counter">
-    <ul class="col-sm-12">
-        <li class="col-sm-2">
+    <ul class="row col-sm-12">
+        <li class="col-sm-2 col-4">
             <label class="col-sm-12">Profissionais</label>
             <span class="col-sm-12">participando</span>
             <div class="col-sm-12"><?php echo $ic->getCounters()->entrepreneurs?></div>
         </li>
-        <li class="col-sm-2">
+        <li class="col-sm-2 col-4">
             <label class="col-sm-12">Startups</label>
             <span class="col-sm-12">cadastradas</span>
             <div class="col-sm-12"><?php echo $ic->getCounters()->startups?></div>
         </li>
-        <li class="col-sm-2">
+        <li class="col-sm-2 col-4">
             <label class="col-sm-12">Empresas</label>
             <span class="col-sm-12">no ecossistema</span>
             <div class="col-sm-12"><?php echo $ic->getCounters()->companies?></div>
         </li>
-        <li class="col-sm-2">
+        <li class="col-sm-2 col-4">
             <label class="col-sm-12">Cidades</label>
             <span class="col-sm-12">atuantes</span>
             <div class="col-sm-12"><?php echo $ic->getCounters()->cities?></div>
         </li>
-        <li class="col-sm-2">
+        <li class="col-sm-2 col-4">
             <label class="col-sm-12">Mercados</label>
             <span class="col-sm-12">atingidos</span>
             <div class="col-sm-12"><?php echo $ic->getCounters()->markets?></div>
         </li>
-        <li class="col-sm-2">
+        <li class="col-sm-2 col-4">
             <label class="col-sm-12">Meetups</label>
             <span class="col-sm-12">organizados</span>
             <div class="col-sm-12"><?php echo $ic->getCounters()->meetups?></div>

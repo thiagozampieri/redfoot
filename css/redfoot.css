@@ -112,7 +112,7 @@ textarea:-moz-placeholder { color:#fff !important; }
     width: 100%;
     background: #ff5050;
 }
-#counter ul { list-style: none; display: inline-flex; }
+#counter ul { list-style: none; display: inline-flex; border-bottom: 3px solid #ff5050; }
 #counter ul li { border-left: 1px solid black; }
 #counter ul li label { color: #fff; font-size: 0.9em;  }
 #counter ul li span { color: #000; font-size: 0.9em;  }
