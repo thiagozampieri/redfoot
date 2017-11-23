@@ -54,7 +54,7 @@ $_categories = $ic->getCategory();
                 <select id="main_market" multiple size="5" name="main_market" class="form-control select2 col-md-12">
                     <option value="">Selecione uma mercado principal</option>
                     <?php foreach(StartupHelper::getCategoryOptions() as $key => $option): ?>
-                        <option value="<?= $key ?>" <?=($_categories[$key] == true) ? 'selected' : ''?> ><?= $option; ?> <?=sizeof(array_filter($ic->getCoordinates(), 'countFilter'))?></option>
+                        <option value="<?= $key ?>" <?=($_categories[$key] == true) ? 'selected' : ''?> ><?= $option; ?> (<?=sizeof(array_filter($ic->getCoordinates(), 'countFilter'))?>)</option>
                     <?php endforeach; ?>
                 </select>
             </div>
