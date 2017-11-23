@@ -15,9 +15,13 @@ $_categories = $ic->getCategory();
             }
             else
             {
-                var test = data[this.field2].search(new RegExp(field1, "i"));
+                var test = data[this.field2].search(new RegExp(field1, "i")) != -1;
 
             }
+            console.log(this.field2);
+            console.log(this.field1);
+            console.log(field1);
+            console.log(test);
             if (test) return data;
         }
         else{

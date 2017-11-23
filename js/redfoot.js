@@ -14,7 +14,7 @@ var initMap = function(map_id) {
 
      var markers = locations.map(function (location, i) {
 
-     console.log(location.coordinates);
+     //console.log(location.coordinates);
 
      var icon = {
      url: 'images/pin-map.png',
