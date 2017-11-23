@@ -3,3 +3,4 @@
 /media/
 .htaccess
 app/config/local.xml
+*.pem
