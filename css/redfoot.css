@@ -5,7 +5,7 @@ a:hover { text-decoration: none; }
 label { font-size: 30px; }
 
 #header { width: 100%; margin: 0px; background: #fff; height: 80px;  }
-#header h1 { background: url('../images/logo.png'); height: 30px; width: 176px; background-size: 100%; margin-left: 60px;}
+#header h1 { background: url('../images/logo.png'); height: 30px; width: 176px; background-size: 100%; margin-left: 30px;}
 #header h1 span { display: none;}
 
 #contanier { padding-top: 30px; }
@@ -17,7 +17,7 @@ label { font-size: 30px; }
 #footer ul{ overflow:hidden; margin: auto; }
 #footer li{ display:inline-block; }
 
-h2 { font-size: 60px; margin-top: 90px; }
+h2 { font-size: 60px; margin-top: 60px; }
 
 .btn { text-transform: uppercase; border-radius: 0px; cursor: pointer; }
 .btn-info { background-color: #fff!important; color: #000!important; border: 0px; }
