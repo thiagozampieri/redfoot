@@ -111,16 +111,17 @@ $ic = new IndexController();
 
 <div style="margin: 20px 0px 20px 0px;">
     <div class="container">
-        <ul class="row list-group">
+        <h2>Nossos eventos</h2>
+        <ul class="row">
             <?php foreach ($ic->getEvents() as $event) { $start_time = new DateTime($event->start_time);?>
-            <li class="row col-sm-12 list-group-item">
+            <div class="row list-group-item col-sm-6 inline-block">
                 <div class="row col-sm-12 inline-block"><span class="col-sm-12"><label><?=$start_time->format('d')?></label>/<label class="red"><?=$start_time->format('m')?></label>/<label><?=$start_time->format('Y')?></label> <small class="red"><?=$start_time->format('H:i')?>h</small></span></div>
                 <div class="row col-sm-12">
                     <label class="col-sm-12"><a href="https://www.facebook.com/events/<?=$event->id?>" target="_blank" class="red"><?=$event->name?></a></label>
                     <span class="col-sm-12"><?=$event->place->name?></span>
                     <small class="col-sm-12"><?=mountLink($event->description)?></small>
                 </div>
-            </li>
+            </div>
             <?php }?>
         </ul>
     </div>
