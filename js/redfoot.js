@@ -43,7 +43,7 @@ var initMap = function(map_id) {
          '<div class="col-sm-2"><img src="'+this.image+'" width="100"/></div>' +
          '<div class="col-sm-10">' +
          '<div class="col-sm-12"><div class="badge badge-danger">'+_categories[this.category]+'</div></div>' +
-         '<div class="col-sm-12"><label class="col-sm-12 text-center">'+this.title+'</label></div>' +
+         '<div class="col-sm-12"><label class="col-sm-12">'+this.title+'</label></div>' +
          '<div class="col-sm-12">'+this.address+'</div>' +
          '</div>'+
          '</div>';
