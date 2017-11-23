@@ -89,23 +89,6 @@ $ic = new IndexController();
         </div>
 
         <div class="clearfix"></div>
-
-        <h2 class="col-sm-7 text-white">Entre em contato como quiser:</h2>
-
-        <div class="container">
-            <div class="col-sm-12">
-                <a href="mailto:contato@redfootbrasil.org"><p class="text-white"><i class="fa fa-envelope"></i> contato@redfootbrasil.org</p></a>
-            </div>
-            <div class="col-sm-2 inline-block socials-form">
-
-                <a href="https://www.facebook.com/RedfootStartups/" title="Facebook" target="_blank"><label class="text-white"><i class="fa fa-facebook-square"></i></label></a>
-                <a href="https://www.facebook.com/groups/redfoot/"  title="Facebook Group" target="_blank"><label class="text-white"><i class="fa fa-facebook"></i></label></a>
-                <a href="https://www.instagram.com/redfootbrazil/" title="Instagram" target="_blank"><label class="text-white"><i class="fa fa-instagram"></i></label></a>
-                <a href="https://chat.whatsapp.com/9X20O6HohvdDOpfFsq8qHZ" title="Whatsapp" target="_blank"><label class="text-white"><i class="fa fa-whatsapp"></i></label></a>
-
-            </div>
-        </div>
-
     </div>
 </div>
 
@@ -130,6 +113,23 @@ $ic = new IndexController();
 
 <div id="contact" class="background-red">
     <div class="container">
+
+        <h2 class="col-sm-7 text-white">Entre em contato como quiser:</h2>
+
+        <div class="container">
+            <div class="col-sm-12">
+                <a href="mailto:contato@redfootbrasil.org"><p class="text-white"><i class="fa fa-envelope"></i> contato@redfootbrasil.org</p></a>
+            </div>
+            <div class="col-sm-2 inline-block socials-form">
+
+                <a href="https://www.facebook.com/RedfootStartups/" title="Facebook" target="_blank"><label class="text-white"><i class="fa fa-facebook-square"></i></label></a>
+                <a href="https://www.facebook.com/groups/redfoot/"  title="Facebook Group" target="_blank"><label class="text-white"><i class="fa fa-facebook"></i></label></a>
+                <a href="https://www.instagram.com/redfootbrazil/" title="Instagram" target="_blank"><label class="text-white"><i class="fa fa-instagram"></i></label></a>
+                <a href="https://chat.whatsapp.com/9X20O6HohvdDOpfFsq8qHZ" title="Whatsapp" target="_blank"><label class="text-white"><i class="fa fa-whatsapp"></i></label></a>
+
+            </div>
+        </div>
+
         <div id="fh5co-contact" data-section="contact">
             <div class="container">
                 <form method="post" id="form" action="app/forms/mail.php" role="form">
