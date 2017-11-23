@@ -17,18 +17,16 @@
 
     <link rel="stylesheet" type="text/css" media="all" href="<?=Config::getUrlBase()?>css/redfoot.css"/>
     <link rel="stylesheet" type="text/css" media="all" href="<?=Config::getUrlBase()?>bower_components/popper.js/docs/css/font-awesome.min.css"/>
+
     <script type="text/javascript" src="<?=Config::getUrlBase()?>bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="<?=Config::getUrlBase()?>js/redfoot.js"></script>
+
     <script src="<?=Config::getUrlBase()?>bower_components/popper.js/popper.min.js"></script>
     <script type="text/javascript" src="<?=Config::getUrlBase()?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?=Config::getUrlBase()?>bower_components/jquery.maskedinput/dist/jquery.maskedinput.min.js"></script>
 
-    <script type="text/javascript" src="<?=Config::getUrlBase()?>js/redfoot.js"></script>
-
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-    </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=<?=Config::getGoogleMapsKey()?>&callback=initMap">
-    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?=Config::getGoogleMapsKey()?>"></script>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>

@@ -77,7 +77,7 @@ class IndexController
         while($startup = $startups->next())
         {
             //echo "<pre>";
-            //print_r($startup->address);
+            //print_r($startup->business);
 
             foreach ($startup->address as $address)
             {
@@ -98,10 +98,11 @@ class IndexController
 
                 }
                 $_data[] =
-                    array ('label' => $startup->name, 'icon' => $startup->image_path,
-                           'coordinates' =>
-                        array(
-                            'lat'=> (double)$address->lat, 'lng' => (double)$address->lng,
+                    array ( 'label' => $startup->name,
+                            'icon' => $startup->image_path,
+                            'category' => $startup->business->main_market,
+                            'coordinates' => array(
+                                                'lat'=> (double)$address->lat, 'lng' => (double)$address->lng,
                                 ),
                             );
             }

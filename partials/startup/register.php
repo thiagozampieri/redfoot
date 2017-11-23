@@ -17,7 +17,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 ?>
 
 <div id="fh5co-startup-register">
-    <div id="contanier" class="startup-register-form">
+    <div id="contanier" class="startup-register-form background-red">
         <?php Message::showMessage(); ?>
 
         <form class="col-sm-12 register-form center-align" enctype="multipart/form-data" method="POST" action="">

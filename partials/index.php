@@ -5,95 +5,68 @@ $ic = new IndexController();
 ?>
 
 <script type="application/javascript">
-
-    function initMap() {
-        var local = {lat: -23.2927, lng: -51.1732};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 13,
-            center: local
-        });
-
-        var bounds = new google.maps.LatLngBounds();
-        var infoWindow = new google.maps.InfoWindow();
-
-        var markers = locations.map(function (location, i) {
-
-            console.log(location.coordinates);
-            var marker = new google.maps.Marker({
-                position: location.coordinates,
-                //icon: location.icon,
-                image: location.icon,
-                label: location.label,
-                title: location.label
-            });
-
-            //extend the bounds to include each marker's position
-            bounds.extend(marker.position);
-
-            marker.addListener('click', function() {
-                var markerContent = '<div id="content"><div class="col-sm-2"><img src="'+this.image+'" width="100"/></div><label class="col-sm-10">'+this.title+'</label><div class="col-sm-12"></div></div>';
-                infoWindow.setContent(markerContent);
-                infoWindow.open(map, this);
-            });
-
-            return marker;
-        });
-
-        //now fit the map to the newly inclusive bounds
-        map.fitBounds(bounds);
-
-        //(optional) restore the zoom level after the map is done scaling
-        var listener = google.maps.event.addListener(map, "idle", function () {
-            map.setZoom(13);
-            google.maps.event.removeListener(listener);
-        });
-
-        // Add a marker clusterer to manage the markers.
-        var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-    }
     var locations = <?=json_encode($ic->getCoordinates())?>;
-
-
+    $(document).ready(function(){
+        initMap('map');
+    })
 </script>
 <div id="map"></div>
 
-<div id="counter">
-    <ul class="row col-sm-12">
-        <li class="col-sm-2 col-4">
-            <label class="col-sm-12">Profissionais</label>
-            <span class="col-sm-12">participando</span>
-            <div class="col-sm-12"><?php echo $ic->getCounters()->entrepreneurs?></div>
-        </li>
-        <li class="col-sm-2 col-4">
-            <label class="col-sm-12">Startups</label>
-            <span class="col-sm-12">cadastradas</span>
-            <div class="col-sm-12"><?php echo $ic->getCounters()->startups?></div>
-        </li>
-        <li class="col-sm-2 col-4">
-            <label class="col-sm-12">Empresas</label>
-            <span class="col-sm-12">no ecossistema</span>
-            <div class="col-sm-12"><?php echo $ic->getCounters()->companies?></div>
-        </li>
-        <li class="col-sm-2 col-4">
-            <label class="col-sm-12">Cidades</label>
-            <span class="col-sm-12">atuantes</span>
-            <div class="col-sm-12"><?php echo $ic->getCounters()->cities?></div>
-        </li>
-        <li class="col-sm-2 col-4">
-            <label class="col-sm-12">Mercados</label>
-            <span class="col-sm-12">atingidos</span>
-            <div class="col-sm-12"><?php echo $ic->getCounters()->markets?></div>
-        </li>
-        <li class="col-sm-2 col-4">
-            <label class="col-sm-12">Meetups</label>
-            <span class="col-sm-12">organizados</span>
-            <div class="col-sm-12"><?php echo $ic->getCounters()->meetups?></div>
-        </li>
-    </ul>
+<div id="counter" class="background-red">
+    <div class="contanier text-center">
+        <ul class="row">
+            <li class="col-sm-2 col-4">
+                <label class="col-sm-12">Profissionais</label>
+                <span class="col-sm-12">participando</span>
+                <div class="col-sm-12"><?php echo $ic->getCounters()->entrepreneurs?></div>
+            </li>
+            <li class="col-sm-2 col-4">
+                <label class="col-sm-12">Startups</label>
+                <span class="col-sm-12">cadastradas</span>
+                <div class="col-sm-12"><?php echo $ic->getCounters()->startups?></div>
+            </li>
+            <li class="col-sm-2 col-4">
+                <label class="col-sm-12">Empresas</label>
+                <span class="col-sm-12">no ecossistema</span>
+                <div class="col-sm-12"><?php echo $ic->getCounters()->companies?></div>
+            </li>
+            <li class="col-sm-2 col-4">
+                <label class="col-sm-12">Cidades</label>
+                <span class="col-sm-12">atuantes</span>
+                <div class="col-sm-12"><?php echo $ic->getCounters()->cities?></div>
+            </li>
+            <li class="col-sm-2 col-4">
+                <label class="col-sm-12">Mercados</label>
+                <span class="col-sm-12">atingidos</span>
+                <div class="col-sm-12"><?php echo $ic->getCounters()->markets?></div>
+            </li>
+            <li class="col-sm-2 col-4">
+                <label class="col-sm-12">Meetups</label>
+                <span class="col-sm-12">organizados</span>
+                <div class="col-sm-12"><?php echo $ic->getCounters()->meetups?></div>
+            </li>
+        </ul>
+    </div>
 </div>
 
-<div id="contanier">
+<div id="filter">
+    <div class="container">
+        <div class="row h-100 text-center">
+            <div class="row col-sm-4"><a class="col-sm-12 rfbox img-responsive healthtech"><div class="rf-align-baseline" href="map?category=5,27">healthtech</div></a></div>
+            <div class="row col-sm-8">
+            <a class="col-sm-6 rfbox img-responsive adtech" href="map?category=1,4,33"><div class="rf-align-baseline">adtech</div></a>
+            <a class="col-sm-3 rfbox img-responsive fintech" href="map?category=15,29"><div class="rf-align-baseline">fintech</div></a>
+            <a class="col-sm-3 rfbox img-responsive retailtech" href="map?category=1,2,3"><div class="rf-align-baseline">retailtech</div></a>
+            <a class="col-sm-3 rfbox img-responsive agritech" href="map?category=2,20"><div class="rf-align-baseline">agritech</div></a>
+            <a class="col-sm-3 rfbox img-responsive lawtech" href="map?category=9"><div class="rf-align-baseline">lawtech</div></a>
+            <a class="col-sm-3 rfbox img-responsive smartcity" href="map?category=19,21,28"><div class="rf-align-baseline">smartcity</div></a>
+            <a class="col-sm-3 rfbox img-responsive proptech" href="map?category=41,35"><div class="rf-align-baseline">proptech</div></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contanier" class="background-red">
     <div class="container">
         <div class="alert alert-info" id="status" style="display: none"></div>
 
