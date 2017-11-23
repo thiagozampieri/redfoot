@@ -97,10 +97,13 @@ class IndexController
                     $address->lng = $geolocation->lng;
 
                 }
+                ;
+
                 $_data[] =
                     array ( 'label' => $startup->name,
                             'icon' => $startup->image_path,
                             'category' => $startup->business->main_market,
+                            'address' => $address->street.', '.$address->number.', '.$address->complement.', '.$address->neighborhood.', '.$address->zipcode.', '.$address->city.' / '.$address->uf,
                             'coordinates' => array(
                                                 'lat'=> (double)$address->lat, 'lng' => (double)$address->lng,
                                 ),

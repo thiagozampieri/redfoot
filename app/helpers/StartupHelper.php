@@ -58,6 +58,7 @@ class StartupHelper
             38 => "Indústria",
             39 => "Energia",
             40 => "Outros",
+            0 => "Nenhuma",
         );
     }
 }

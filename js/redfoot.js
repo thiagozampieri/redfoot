@@ -26,19 +26,27 @@ var initMap = function(map_id) {
 
 
      var marker = new google.maps.Marker({
-     position: location.coordinates,
-
-     icon: icon,
-     image: location.icon,
-     //label: location.label,
-     title: location.label
+         position: location.coordinates,
+         icon: icon,
+         image: location.icon,
+         //label: location.label,
+         title: location.label,
+         category: location.category,
+         address: location.address,
      });
-
+console.log(_categories);
      //extend the bounds to include each marker's position
      bounds.extend(marker.position);
 
      marker.addListener('click', function() {
-     var markerContent = '<div id="content"><div class="col-sm-2"><img src="'+this.image+'" width="100"/></div><label class="col-sm-10">'+this.title+'</label><div class="col-sm-12"></div></div>';
+     var markerContent = '<div id="content" class="row">' +
+         '<div class="col-xs-2"><img src="'+this.image+'" width="100"/></div>' +
+         '<div class="col-xs-10">' +
+         '<div class="col-sm-12"><div class="badge badge-danger">'+_categories[this.category]+'</div></div>' +
+         '<div class="col-sm-12"><label class="col-xs-12 text-center">'+this.title+'</label></div>' +
+         '<div class="col-sm-12">'+this.address+'</div>' +
+         '</div>'+
+         '</div>';
      infoWindow.setContent(markerContent);
      infoWindow.open(map, this);
      });

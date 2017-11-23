@@ -33,6 +33,7 @@
 
     <script type="text/javascript">
         _rf = new Redfoot();
+        _categories = <?=json_encode(StartupHelper::getCategoryOptions())?>;
         $(document).ready(function(){
             $("input[type=tel]").mask("(99) 9999-9999?9");
             $(".date").mask("99/99/9999");
