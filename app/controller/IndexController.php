@@ -83,7 +83,7 @@ class IndexController
             {
                 //print_r($address);
 
-                if ($address->lat == null & $address->lng == null)
+                if (($address->lat == null & $address->lng == null) | ($address->lat != 0 & $address->lng != 0))
                 {
 
                     $geolocation = Geolocation::getByAddress($address);
@@ -99,15 +99,18 @@ class IndexController
                 }
                 ;
 
-                $_data[] =
-                    array ( 'label' => $startup->name,
+                if ($address->lat != 0 & $address->lng != 0) {
+                    $_data[] =
+                        array('label' => $startup->name,
                             'icon' => $startup->image_path,
                             'category' => $startup->business->main_market,
-                            'address' => $address->street.', '.$address->number.', '.$address->complement.', '.$address->neighborhood.', '.$address->zipcode.', '.$address->city.' / '.$address->uf,
+                            'address' => $address->street . ', ' . $address->number . ', ' . $address->complement . ', ' . $address->neighborhood . ', ' . $address->zipcode . ', ' . $address->city . ' / ' . $address->uf,
                             'coordinates' => array(
-                                                'lat'=> (double)$address->lat, 'lng' => (double)$address->lng,
-                                ),
-                            );
+                                'lat' => (double)$address->lat, 'lng' => (double)$address->lng,
+                            ),
+                        );
+
+                }
             }
 
             $this->_data = $_data;
