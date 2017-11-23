@@ -52,7 +52,7 @@ $ic = new IndexController();
 <div id="filter">
     <div class="container">
         <div class="row h-100 text-center">
-            <div class="row col-sm-4"><a class="col-sm-12 rfbox img-responsive healthtech"><div class="rf-align-baseline" href="map?category=5,27">healthtech</div></a></div>
+            <div class="row col-sm-4"><a class="col-sm-12 rfbox img-responsive healthtech" href="map?category=5,27"><div class="rf-align-baseline">healthtech</div></a></div>
             <div class="row col-sm-8">
             <a class="col-sm-6 rfbox img-responsive adtech" href="map?category=1,4,33"><div class="rf-align-baseline">adtech</div></a>
             <a class="col-sm-3 rfbox img-responsive fintech" href="map?category=15,29"><div class="rf-align-baseline">fintech</div></a>
