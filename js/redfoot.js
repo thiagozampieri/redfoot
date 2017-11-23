@@ -34,7 +34,7 @@ var initMap = function(map_id) {
          category: location.category,
          address: location.address,
      });
-console.log(_categories);
+
      //extend the bounds to include each marker's position
      bounds.extend(marker.position);
 
