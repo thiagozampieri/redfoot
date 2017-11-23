@@ -59,7 +59,7 @@ var initMap = function(map_id) {
 
      //(optional) restore the zoom level after the map is done scaling
      var listener = google.maps.event.addListener(map, "idle", function () {
-     map.setZoom(13);
+     map.setZoom(6);
      google.maps.event.removeListener(listener);
      });
 
