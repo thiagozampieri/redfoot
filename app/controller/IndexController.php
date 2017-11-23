@@ -127,4 +127,20 @@ class IndexController
     {
         return $this->counter;
     }
+
+    public function getCategory()
+    {
+        $v_categories = (isset($_GET['category'])) ? explode(",", $_GET['category']) : array();
+        $_categories = array();
+        foreach($v_categories as $v_cat => $value) $_categories[$value] = true;
+
+        return $_categories;
+    }
+}
+
+function countFilter($data)
+{
+    global $key;
+    if ($data[category] == $key)
+        return $data;
 }

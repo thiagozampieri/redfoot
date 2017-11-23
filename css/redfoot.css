@@ -137,6 +137,7 @@ textarea:-moz-placeholder { color:#fff !important; }
     width:100%;
     color: #fff;
     left: 0px;
+    text-transform: capitalize;
 }
 
 .healthtech { background: url('../images/healthtech.jpg') center center no-repeat; height: 450px!important; }

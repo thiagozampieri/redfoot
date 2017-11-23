@@ -2,15 +2,7 @@
 
 <?php
 $ic = new IndexController();
-
-$v_categories = (isset($_GET['category'])) ? explode(",", $_GET['category']) : array();
-
-$_categories = array();
-foreach($v_categories as $v_cat => $value)
-{
-    $_categories[$value] = true;
-}
-
+$_categories = $ic->getCategory();
 ?>
 
 <script type="application/javascript">
@@ -62,7 +54,7 @@ foreach($v_categories as $v_cat => $value)
                 <select id="main_market" multiple size="5" name="main_market" class="form-control select2 col-md-12">
                     <option value="">Selecione uma mercado principal</option>
                     <?php foreach(StartupHelper::getCategoryOptions() as $key => $option): ?>
-                        <option value="<?= $key ?>" <?=($_categories[$key] == true) ? 'selected' : ''?> ><?= $option; ?></option>
+                        <option value="<?= $key ?>" <?=($_categories[$key] == true) ? 'selected' : ''?> ><?= $option; ?> <?=sizeof(array_filter($ic->getCoordinates(), 'countFilter'))?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
