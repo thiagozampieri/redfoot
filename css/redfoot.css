@@ -148,3 +148,8 @@ textarea:-moz-placeholder { color:#fff !important; }
 .lawtech { background: url('../images/lawtech.jpg') center center no-repeat; }
 .smartcity { background: url('../images/smartcity.jpg') center center no-repeat; }
 .proptech { background: url('../images/proptech.jpg') center center no-repeat; }
+
+
+.red {
+    color: #fa3e3e;
+}

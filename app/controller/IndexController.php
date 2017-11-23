@@ -10,6 +10,7 @@ class IndexController
 {
     private $_data = array();
     private $counter = null;
+    private $facebookEvent = null;
 
     public function __construct()
     {
@@ -52,7 +53,11 @@ class IndexController
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = json_decode(curl_exec($ch));
         curl_close($ch);
-        $meetups = sizeof($output->data);
+
+        $this->facebookEvent = $output->data;
+        $meetups = sizeof($this->facebookEvent);
+
+
 
         $counter = new stdClass();
 
@@ -134,6 +139,11 @@ class IndexController
         return $this->counter;
     }
 
+    public function getEvents()
+    {
+        return $this->facebookEvent;
+    }
+
     public function getCategory()
     {
         $v_categories = (isset($_GET['category'])) ? explode(",", $_GET['category']) : array();
@@ -149,4 +159,31 @@ function countFilter($data)
     global $key;
     if ($data[category] == $key)
         return $data;
+}
+
+function mountLink($texto)
+{
+    if (!is_string ($texto))
+        return $texto;
+
+    $er = "/(https:\/\/(www\.|.*?\/)?|http:\/\/(www\.|.*?\/)?|www\.)([a-zA-Z0-9]+|_|-)+(\.(([0-9a-zA-Z]|-|_|\/|\?|=|&)+))+/i";
+
+    preg_match_all ($er, $texto, $match);
+
+    foreach ($match[0] as $link)
+    {
+
+        //coloca o 'http://' caso o link não o possua
+        $link_completo = (stristr($link, "http") === false) ? "http://" . $link : $link;
+
+        $link_len = strlen ($link);
+
+        //troca "&" por "&", tornando o link válido pela W3C
+        $web_link = str_replace ("&", "&amp;", $link_completo);
+        $texto = str_ireplace ($link, "<a href=\"" . strtolower($web_link) . "\" target=\"_blank\">". (($link_len > 60) ? substr ($web_link, 0, 25). "...". substr ($web_link, -15) : $web_link) ."</a>", $texto);
+
+    }
+
+    return $texto;
+
 }
