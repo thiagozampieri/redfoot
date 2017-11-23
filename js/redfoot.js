@@ -40,10 +40,10 @@ var initMap = function(map_id) {
 
      marker.addListener('click', function() {
      var markerContent = '<div id="content" class="row">' +
-         '<div class="col-xs-2"><img src="'+this.image+'" width="100"/></div>' +
-         '<div class="col-xs-10">' +
+         '<div class="col-sm-2"><img src="'+this.image+'" width="100"/></div>' +
+         '<div class="col-sm-10">' +
          '<div class="col-sm-12"><div class="badge badge-danger">'+_categories[this.category]+'</div></div>' +
-         '<div class="col-sm-12"><label class="col-xs-12 text-center">'+this.title+'</label></div>' +
+         '<div class="col-sm-12"><label class="col-sm-12 text-center">'+this.title+'</label></div>' +
          '<div class="col-sm-12">'+this.address+'</div>' +
          '</div>'+
          '</div>';
