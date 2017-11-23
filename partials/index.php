@@ -121,7 +121,7 @@ $ic = new IndexController();
                     <small class="col-sm-12"><?=mountLink($event->description)?></small>
                 </div>
             </li>
-            <?}?>
+            <?php }?>
         </ul>
     </div>
 </div>
