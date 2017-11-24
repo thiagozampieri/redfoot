@@ -18,10 +18,6 @@ $_categories = $ic->getCategory();
                 var test = data[this.field2].search(new RegExp(field1, "i")) != -1;
 
             }
-            console.log(this.field2);
-            console.log(this.field1);
-            console.log(field1);
-            console.log(test);
             if (test) return data;
         }
         else{
@@ -30,7 +26,7 @@ $_categories = $ic->getCategory();
         return false;
     }
 
-    var locs = <?=json_encode($ic->getCoordinates())?>;
+    var locs = <?=json_encode($ic->getCoordinates(),JSON_UNESCAPED_UNICODE)?>;
     var locations = [];
     function filterFilter(){
         locations = locs.filter(map_filter, {field1: 'name', field2: 'label'}).filter(map_filter, {field1: 'main_market', field2: 'category'});

@@ -5,7 +5,7 @@ $ic = new IndexController();
 ?>
 
 <script type="application/javascript">
-    var locations = <?=json_encode($ic->getCoordinates())?>;
+    var locations = <?=json_encode($ic->getCoordinates(), JSON_UNESCAPED_UNICODE)?>;
     $(document).ready(function(){
         initMap('map');
     })
