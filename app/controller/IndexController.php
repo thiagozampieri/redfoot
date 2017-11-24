@@ -104,7 +104,7 @@ class IndexController
                 }
                 ;
 
-                if ($address->lat != 0 & $address->lng != 0) {
+                //if ($address->lat != 0 & $address->lng != 0) {
                     $_data[] =
                         array('label' => $startup->name,
                             'icon' => $startup->image_path,
@@ -115,7 +115,7 @@ class IndexController
                             ),
                         );
 
-                }
+                //}
             }
 
             $this->_data = $_data;
