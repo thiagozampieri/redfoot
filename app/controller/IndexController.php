@@ -88,23 +88,25 @@ class IndexController
             {
                 //print_r($address);
 
-                if (($address->lat == null & $address->lng == null) | ($address->lat != 0 & $address->lng != 0))
+                if (($address->lat == null & $address->lng == null))
                 {
 
                     $geolocation = Geolocation::getByAddress($address);
-                    $address2 = Address::where(array('startup_id' => $address->startup_id, 'type' => $address->type))->updateAttributes(
-                        array(
-                            'lat' => $geolocation->lat,
-                            'lng' => $geolocation->lng
-                        )
-                    );
-                    $address->lat = $geolocation->lat;
-                    $address->lng = $geolocation->lng;
+                    if (($geolocation->lat != null & $geolocation->lng != null)) {
+                        $address2 = Address::where(array('startup_id' => $address->startup_id, 'type' => $address->type))->updateAttributes(
+                            array(
+                                'lat' => $geolocation->lat,
+                                'lng' => $geolocation->lng
+                            )
+                        );
+                        $address->lat = $geolocation->lat;
+                        $address->lng = $geolocation->lng;
+                    }
 
                 }
                 ;
 
-                //if ($address->lat != 0 & $address->lng != 0) {
+                if (($address->lat != null & $address->lng != null)) {
                     $_data[] =
                         array('label' => $startup->name,
                             'icon' => $startup->image_path,
@@ -115,7 +117,7 @@ class IndexController
                             ),
                         );
 
-                //}
+                }
             }
 
             $this->_data = $_data;
@@ -125,12 +127,12 @@ class IndexController
 
     public function getCoordinates()
     {
-        $_data = array();
+        /*$_data = array();
         foreach ($this->_data as $v_data)
         {
             $_data[] = $v_data['coordinates'];
         }
-
+        */
         return $this->_data;
     }
 
