@@ -153,3 +153,9 @@ textarea:-moz-placeholder { color:#fff !important; }
 .red {
     color: #fa3e3e;
 }
+
+.hide {
+    display: none;
+    float: left;
+    width: 100%;
+}

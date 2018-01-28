@@ -41,8 +41,8 @@ $ic = new IndexController();
                 <div class="col-sm-12"><?php echo $ic->getCounters()->markets?></div>
             </li>
             <li class="col-sm-2 col-4">
-                <label class="col-sm-12">Meetups</label>
-                <span class="col-sm-12">organizados</span>
+                <label class="col-sm-12">Eventos</label>
+                <span class="col-sm-12">realizados</span>
                 <div class="col-sm-12"><?php echo $ic->getCounters()->meetups?></div>
             </li>
         </ul>

@@ -23,42 +23,76 @@ class StartupHelper
             5 => "Biotecnologia",
             6 => "Casa e Família",
             7 => "Cloud Computing",
-            8 => "CRM",
-            41 => "Construção",
-            9 => "Direito",
-            10 => "E-commerce",
-            11 => "Educação",
-            12 => "Entretenimento",
-            13 => "Esportes",
-            14 => "Eventos e Turismo",
-            15 => "Finanças",
-            16 => "Games",
-            17 => "Hardware",
-            18 => "Infantil",
-            19 => "Logística e Mobilidade Urbana",
-            20 => "Meio Ambiente",
-            21 => "Mobile",
-            22 => "Moda e Beleza",
-            23 => "Nanotecnologia",
-            24 => "Pets",
-            25 => "Recrutamento",
-            26 => "Recursos Humanos",
-            27 => "Saúde e bem-estar",
-            43 => "Social",
-            28 => "Seguranca e Defesa",
-            29 => "Seguros",
-            30 => "TIC e Telecom",
-            31 => "Transportes",
-            32 => "Varejo/Atacado",
-            33 => "Vendas e Marketing",
-            34 => "Vídeo",
-            35 => "Imobiliário",
-            36 => "Produtos de Consumo",
+            8 => "Comunicação e Mídia",
+            9 => "Construção Civil",
+            10 => "CRM",
+            11 => "Direito",
+            12 => "E-commerce",
+            13 => "Educação",
+            14 => "Energia",
+            15 => "Entretenimento",
+            16 => "Esportes",
+            17 => "Eventos e Turismo",
+            18 => "Finanças",
+            19 => "Games",
+            20 => "Hardware",
+            21 => "Imobiliário",
+            22 => "Indústria",
+            23 => "Infantil",
+            24 => "Internet",
+            25 => "Logística e Mobilidade Urbana",
+            26 => "Meio Ambiente",
+            27 => "Mobile",
+            28 => "Moda e Beleza",
+            29 => "Nanotecnologia",
+            30 => "Pets",
+            31 => "Recrutamento",
+            32 => "Recursos Humanos",
+            33 => "Saúde e bem-estar",
+            34 => "Social",
+            35 => "Seguranca e Defesa",
+            36 => "Seguros",
             37 => "Serviços Profissionais, científicos ou técnicos",
-            38 => "Indústria",
-            39 => "Energia",
-            40 => "Outros",
+            38 => "TIC e Telecom",
+            39 => "Transportes",
+            40 => "Varejo / Atacado",
+            41 => "Vendas e Marketing",
+            42 => "Vídeo",
+            43 => "Outros",
             0 => "Nenhuma",
         );
+    }
+
+    /**
+     * Retorna as opcoes de GRADUAÇÃO
+     * @return array
+     */
+    static function getGraduationOptions()
+    {
+        return array(
+            0 => "Ensino Fundamental",
+            1 => "Ensino Médio",
+            2 => "Educação Profissional",
+            3 => "Graduação (Tecnólogo)",
+            4 => "Graduação (Bacharelado ou Licenciatura",
+            5 => "Pós Graduação (Especialização)",
+            6 => "Pós Graduação (Mestrado)",
+            7 => "Pós Graduação (Doutorado)",
+            8 => "Pós Graduação (Pós Doutorado)",
+        );
+    }
+
+    /**
+     * Retorna as opcoes de STARTUP
+     * @return array
+     */
+    static function getStartupOptions()
+    {
+        $startups = Startup::all();
+        $_options = array();
+        while($startup = $startups->next()){
+            $_options[$startup->id] = $startup->name;
+        }
+        return $_options;
     }
 }
