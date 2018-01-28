@@ -65,7 +65,7 @@ class RegisterStartupController
                         $startup->needs_text = $data->needs_text;
                         $startup->image_path = $image_path;
                         $startup->created_date = date('Y-m-d H:i:s');
-                        $startup->status = 0;
+                        $startup->status = 1;
 
                         $startup->save();
 
