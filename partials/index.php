@@ -52,15 +52,15 @@ $ic = new IndexController();
 <div id="filter">
     <div class="container">
         <div class="row h-100 text-center">
-            <div class="row col-sm-4"><a class="col-sm-12 rfbox img-responsive healthtech" href="map?category=5,27"><div class="rf-align-baseline">healthtech</div></a></div>
+            <div class="row col-sm-4"><a class="col-sm-12 rfbox img-responsive healthtech" href="map?category=5,33"><div class="rf-align-baseline">healthtech</div></a></div>
             <div class="row col-sm-8">
-            <a class="col-sm-6 rfbox img-responsive adtech" href="map?category=1,4,33"><div class="rf-align-baseline">adtech</div></a>
-            <a class="col-sm-3 rfbox img-responsive fintech" href="map?category=15,29"><div class="rf-align-baseline">fintech</div></a>
+            <a class="col-sm-6 rfbox img-responsive adtech" href="map?category=1,4,41"><div class="rf-align-baseline">adtech</div></a>
+            <a class="col-sm-3 rfbox img-responsive fintech" href="map?category=18,36"><div class="rf-align-baseline">fintech</div></a>
             <a class="col-sm-3 rfbox img-responsive retailtech" href="map?category=1,2,3"><div class="rf-align-baseline">retailtech</div></a>
-            <a class="col-sm-3 rfbox img-responsive agritech" href="map?category=2,20"><div class="rf-align-baseline">agritech</div></a>
-            <a class="col-sm-3 rfbox img-responsive lawtech" href="map?category=9"><div class="rf-align-baseline">lawtech</div></a>
-            <a class="col-sm-3 rfbox img-responsive smartcity" href="map?category=19,21,28"><div class="rf-align-baseline">smartcity</div></a>
-            <a class="col-sm-3 rfbox img-responsive proptech" href="map?category=41,35"><div class="rf-align-baseline">proptech</div></a>
+            <a class="col-sm-3 rfbox img-responsive agritech" href="map?category=2,26"><div class="rf-align-baseline">agritech</div></a>
+            <a class="col-sm-3 rfbox img-responsive lawtech" href="map?category=11"><div class="rf-align-baseline">lawtech</div></a>
+            <a class="col-sm-3 rfbox img-responsive smartcity" href="map?category=25,27,35"><div class="rf-align-baseline">smartcity</div></a>
+            <a class="col-sm-3 rfbox img-responsive proptech" href="map?category=9,21"><div class="rf-align-baseline">proptech</div></a>
             </div>
         </div>
     </div>

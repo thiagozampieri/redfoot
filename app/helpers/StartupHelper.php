@@ -8,13 +8,44 @@
 
 class StartupHelper
 {
+    /**
+     * Qual tipo de vinculo vocë esta
+     * @return array
+     */
+    static function getBoundsOptions(){
+        return array(
+            1 => "Startup",
+            /*2 => "Aceleradora",
+            3 => "Incubadora",
+            4 => "Coworking",
+            5 => "Serviços Digitais",
+            6 => "Parque Tecnológico",
+            7 => "Organizações",
+            8 => "Instituições de Ensino",
+            9 => "Investidores",
+            10 => "Governo",
+            0 => "Outros"*/
+        );
+    }
+
+    /**
+     * Qual Status esta sua Startup?
+     * @return array
+     */
+    static function getLevelOptions(){
+        return array(
+            1 => "Ideação",
+            2 => "Operação",
+            3 => "Tração",
+            0 => "Outros"
+        );
+    }
 
     /**
      * Retorna as opcoes de startups
      * @return array
      */
-    static function getCategoryOptions()
-    {
+    static function getCategoryOptions(){
         return array(
             1 => "Advertising",
             2 => "Agronegócio",
@@ -67,8 +98,7 @@ class StartupHelper
      * Retorna as opcoes de GRADUAÇÃO
      * @return array
      */
-    static function getGraduationOptions()
-    {
+    static function getGraduationOptions(){
         return array(
             0 => "Ensino Fundamental",
             1 => "Ensino Médio",
@@ -86,8 +116,7 @@ class StartupHelper
      * Retorna as opcoes de STARTUP
      * @return array
      */
-    static function getStartupOptions()
-    {
+    static function getStartupOptions(){
         $startups = Startup::all();
         $_options = array();
         while($startup = $startups->next()){

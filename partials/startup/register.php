@@ -53,11 +53,28 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
             </div>
 
             <div class="row">
+                <div class="col-sm-6 inline-block "><input type="url" name="linkedin" placeholder="Link do Linkedin"
+                                                           class="form-control" required/></div>
+                <div class="col-sm-6 inline-block "><input type="url" name="facebook" placeholder="Link do Facebook"
+                                                           class="form-control"/>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col-md-6 inline-block">
-                    <label> Gostaria de ser voluntário Redfoot ?</label>
+                    <label> Gostaria de ser voluntário Redfoot?</label>
                     <select id="voluntary" name="voluntary" class="form-control">
                         <option value="0">Não</option>
                         <option value="1">Sim</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 inline-block">
+                    <label>Estou vinculado a:</label>
+                    <select id="bound" name="bound" class="form-control">
+                        <?php foreach(StartupHelper::getBoundsOptions() as $key => $option): ?>
+                            <option value="<?= $key ?>"><?= $option; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>
@@ -70,6 +87,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                                                            class="form-control" required/>
                 </div>
             </div>
+
 
             <br/>
             <br/>
@@ -113,10 +131,20 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
             <div id="newStartup" class="hide">
 
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6 inline-block">
                         <label>Logo da startup</label><br/>
                         <div class="inline-block "><input type="file" name="file" placeholder="Logo da Startup" class="form-control" required/></div>
 
+                    </div>
+
+                    <div class="col-sm-6 inline-block ">
+                        <label>Em quem momento está sua Startup</label><br/>
+                        <select id="level" name="level" class="form-control col-md-12" required>
+                            <option>Selecione uma</option>
+                            <?php foreach(StartupHelper::getLevelOptions() as $key => $option): ?>
+                                <option value="<?= $key ?>"><?= $option; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
 
@@ -201,24 +229,20 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                         </select>
                     </div>
 
+
                     <div class="col-sm-6">
                         <label> Marque nas opções a seguir o que se refere a sua startup:</label>
                         <br/>
                         <input name="options_data[]" value="0" id="options_data_1" type="checkbox"/> <label class="options"
-                                                                                                            for="options_data_1">Faço
-                            ou já fiz parte de um processo de aceleração </label> <br/>
+                                                                                                            for="options_data_1">Faço ou já fiz parte de um processo de incubação</label> <br/>
                         <input name="options_data[]" value="1" id="options_data_2" type="checkbox"/> <label class="options"
-                                                                                                            for="options_data_2">Já
-                            fui contemplado em algum edital </label><br/>
+                                                                                                            for="options_data_2">Faço ou já fiz parte de um processo de Pré-aceleração</label><br/>
                         <input name="options_data[]" value="2" id="options_data_3" type="checkbox"/> <label class="options"
-                                                                                                            for="options_data_3">Estou
-                            ou já estive instalado em uma incubadora </label><br/>
+                                                                                                            for="options_data_3">Faço ou já fiz parte de um processo de Aceleração</label><br/>
                         <input name="options_data[]" value="3" id="options_data_4" type="checkbox"/> <label class="options"
-                                                                                                            for="options_data_4">Estou
-                            ou já estive instalado em um coworking </label><br/>
+                                                                                                            for="options_data_4">Já fui contemplado em algum edital </label><br/>
                         <input name="options_data[]" value="4" id="options_data_5" type="checkbox"/> <label class="options"
-                                                                                                            for="options_data_5">Tenho
-                            parceria ou contrato com Grande Empresa </label><br/>
+                                                                                                            for="options_data_5">Tenho parceria ou contrato com GrandeEmpresa </label><br/>
                         <input name="options_data[]" value="5" id="options_data_6" type="checkbox"/> <label class="options"
                                                                                                             for="options_data_6">
                             Nenhuma das anteriores </label><br/>

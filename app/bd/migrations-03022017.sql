@@ -1,0 +1,2 @@
+ALTER TABLE `entrepreneur` ADD `linkedin` VARCHAR(500) NULL AFTER `name`, ADD `facebook` VARCHAR(500) NULL AFTER `linkedin`, ADD `bound` INT(11) NOT NULL DEFAULT '1' AFTER `facebook`;
+ALTER TABLE `startup` ADD `level` INT(11) NULL AFTER `url`;
