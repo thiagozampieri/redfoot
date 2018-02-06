@@ -61,7 +61,7 @@ class RegisterStartupController
                         $startup->contact_name = $data->contact_name;
                         $startup->email = $data->email;
                         $startup->phone = $data->phone;
-                        $startup->billing_range = $data->billing_range;
+                        $startup->billing_range = ($data->billing_range !== "" && $data->billing_range !== false) ? $data->billing_range : -1;
                         $startup->options_data = json_encode($data->options_data);
                         $startup->needs_text = $data->needs_text;
                         $startup->image_path = $image_path;
