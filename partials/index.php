@@ -10,6 +10,9 @@ $ic = new IndexController();
         initMap('map');
     })
 </script>
+
+<?php include_once "carousel.php"; ?>
+
 <div id="map"></div>
 
 <div id="counter" class="background-red">
@@ -98,11 +101,11 @@ $ic = new IndexController();
         <ul class="row">
             <?php foreach ($ic->getEvents() as $event) { $start_time = new DateTime($event->start_time);?>
             <div class="row list-group-item col-sm-6 inline-block">
-                <div class="row col-sm-12 inline-block"><span class="col-sm-12"><label><?=$start_time->format('d')?></label>/<label class="red"><?=$start_time->format('m')?></label>/<label><?=$start_time->format('Y')?></label> <small class="red"><?=$start_time->format('H:i')?>h</small></span></div>
+                <div class="row col-sm-12 inline-block"><span class="col-sm-12"><label><?=$start_time->format('d')?></label>/<label><?=$start_time->format('m')?></label>/<label><?=$start_time->format('Y')?></label> <small><?=$start_time->format('H:i')?>h</small></span></div>
                 <div class="row col-sm-12">
-                    <label class="col-sm-12"><a href="https://www.facebook.com/events/<?=$event->id?>" target="_blank" class="red"><?=$event->name?></a></label>
+                    <label class="col-sm-12" style="font-size: 15px; font-weight: bold;"><a href="https://www.facebook.com/events/<?=$event->id?>" target="_blank" style="color: #000"><?=$event->name?></a></label>
                     <span class="col-sm-12"><?=$event->place->name?></span>
-                    <small class="col-sm-12"><?=mountLink($event->description)?></small>
+                    <small class="col-sm-12"><?=Util::textLimiterCaracter(strip_tags(mountLink($event->description)),200, '...')?></small>
                 </div>
             </div>
             <?php }?>

@@ -38,5 +38,21 @@ class Util
         return $text;
     }
 
+    static function textLimiterCaracter($str, $limit, $suffix = '...')
+    {
+        if (strlen($str) > $limit) {
+
+            while (substr($str, $limit, 1) != ' ') {
+                $limit--;
+            }
+
+            if (strlen($str) <= $limit) {
+                return $str;
+            }
+
+            return substr($str, 0, $limit + 1) . $suffix;
+        }
+        return $str;
+    }
 
 }
