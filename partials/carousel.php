@@ -43,8 +43,8 @@
     <div class="jcarousel-wrapper">
         <div data-jcarousel="true" data-wrap="circular" class="jcarousel">
             <ul>
-                <li><img src="images/banner/red-fight.jpg" align="middle" height="450" alt=""></li>
-                <li><img src="images/banner/arena-redfoot.jpg" align="middle" height="450" alt=""></li>
+                <li><img src="images/banner/red-fight.jpg" align="middle" width="100%" alt=""></li>
+                <li><img src="images/banner/arena-redfoot.jpg" align="middle" width="100%" alt=""></li>
             </ul>
         </div>
         <a data-jcarousel-control="true" data-target="-=1" href="#" class="jcarousel-control-prev">&lsaquo;</a>
