@@ -34,7 +34,7 @@
     $(document).ready(function(){
         $('.jcarousel').jcarouselAutoscroll({
             autostart: true,
-            interval: 2000,
+            interval: 4000,
         });
     });
 </script>
