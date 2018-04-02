@@ -36,8 +36,6 @@
             autostart: true,
             interval: 4000,
         });
-
-
         $('.jcarousel ul li img').width($(document).width());
     });
 </script>
@@ -46,8 +44,11 @@
     <div class="jcarousel-wrapper">
         <div data-jcarousel="true" data-wrap="circular" class="jcarousel">
             <ul>
-                <li><img src="images/banner/red-fight.jpg" align="middle" alt=""></li>
-                <li><img src="images/banner/arena-redfoot.jpg" align="middle" alt=""></li>
+                <li><img src="images/banner/DEVbanner.png" align="middle" alt=""></li>
+                <li><img src="images/banner/FEELbanner.png" align="middle" alt=""></li>
+                <li><img src="images/banner/MAGALDIevento.png" align="middle" alt=""></li>
+                <li><img src="images/banner/MARKETING4BANNER.png" align="middle" alt=""></li>
+                <li><img src="images/banner/MEETUPbanner.png" align="middle" alt=""></li>
             </ul>
         </div>
         <a data-jcarousel-control="true" data-target="-=1" href="#" class="jcarousel-control-prev">&lsaquo;</a>

@@ -49,7 +49,7 @@ class RegisterStartupController
                         $startup = new Startup();
                         $startup->name = $data->name;
                         $startup->url = $data->url;
-                        $startup->level = $data->level;
+                        $startup->level = intval($data->level);
                         $startup->partners_number = intval($data->partners_number);
                         $startup->employees_number = intval($data->employees_number);
                         $startup->start_date = Util::formatDate($data->start_date);
