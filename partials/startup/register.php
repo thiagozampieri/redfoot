@@ -43,9 +43,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                                                            class="form-control cpf" required/></div>
                 <div class="col-sm-6 inline-block ">
                     <label> Informe seu Grau de Escolaridade </label>
-                    <select id="graduation" name="graduation" class="form-control select2" required>
-                        <option>Selecione uma opção</option>
-
+                    <select id="graduation" name="graduation" class="form-control select2 required" required>
+                        <option value="">Selecione uma opção</option>
                         <?php foreach(StartupHelper::getGraduationOptions() as $key => $option): ?>
                             <option value="<?= $key ?>"><?= $option; ?></option>
                         <?php endforeach; ?>
@@ -65,8 +64,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                 <div class="col-md-6 inline-block">
                     <label> Gostaria de ser voluntário Redfoot?</label>
                     <select id="voluntary" name="voluntary" class="form-control">
-                        <option value="0">Não</option>
                         <option value="1">Sim</option>
+                        <option value="0">Não</option>
                     </select>
                 </div>
 
@@ -83,7 +82,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
             <div class="row">
                 <div class="col-sm-6 inline-block "><input type="password" name="password" placeholder="Senha"
-                                                           class="form-control " required/></div>
+                                                           class="form-control required" required/></div>
                 <div class="col-sm-6 inline-block "><input type="password" name="confirm_password" placeholder="Confirmar senha"
                                                            class="form-control" required/>
                 </div>
@@ -118,9 +117,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                 <div class="row">
                     <div class="col-md-12 inline-block">
                         <label>Informe a sua Startup</label><br/>
-                        <select id="startup_id" name="startup_id" class="form-control col-md-12" required>
-                            <option>Selecione uma</option>
-
+                        <select id="startup_id" name="startup_id" class="form-control col-md-12 required" required>
+                            <option value="">Selecione uma opção</option>
                             <?php foreach(StartupHelper::getStartupOptions() as $key => $option): ?>
                                 <option value="<?= $key ?>"><?= $option; ?></option>
                             <?php endforeach; ?>
@@ -140,8 +138,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
                     <div class="col-sm-6 inline-block ">
                         <label>Em quem momento está sua Startup</label><br/>
-                        <select id="level" name="level" class="form-control col-md-12" required>
-                            <option>Selecione uma</option>
+                        <select id="level" name="level" class="form-control col-md-12 required" required>
+                            <option value="">Selecione uma opção</option>
                             <?php foreach(StartupHelper::getLevelOptions() as $key => $option): ?>
                                 <option value="<?= $key ?>"><?= $option; ?></option>
                             <?php endforeach; ?>
@@ -185,7 +183,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
                     <div id="not_formalized" class="col-sm-6 " style="display: block">
                         <label> Motivo da não formalização </label>
-                        <select id="reason_formalized" name="reason_formalized" class="form-control " required>
+                        <select id="reason_formalized" name="reason_formalized" class="form-control required" required>
                             <option value="">Selecione um motivo</option>
                             <option value="0">Estou em processo de formalização</option>
                             <option value="1">Pretendo me formalizar ainda esse ano</option>
@@ -222,7 +220,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                 <div class="row ">
                     <div class="col-sm-6">
                         <label> Qual é a sua faixa de faturamento mensal? </label>
-                        <select id="billing_range" name="billing_range" class="form-control " required>
+                        <select id="billing_range" name="billing_range" class="form-control required" required>
                             <option value="">Selecione uma faixa</option>
                             <option value="0">Até R$ 1.000,00</option>
                             <option value="1">De R$ 1.000,00 a R$ 10.000,00</option>
@@ -271,9 +269,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                 <div class="row">
                     <div class="col-sm-6 inline-block ">
                         <label> Mercado Principal </label>
-                        <select id="main_market" name="main_market" class="form-control select2" required>
-                            <option>Selecione...</option>
-
+                        <select id="main_market" name="main_market" class="form-control select2 required col-xs-12" required>
                             <?php foreach(StartupHelper::getCategoryOptions() as $key => $option): ?>
                                 <option value="<?= $key ?>"><?= $option; ?></option>
                             <?php endforeach; ?>
@@ -282,8 +278,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
                     <div class="col-sm-6 inline-block ">
                         <label> Mercados Complementares </label>
-                        <select id="complementary_market" name="complementary_market[]" class="form-control select2-multiple" multiple>
-                            <option>Selecione...</option>
+                        <select id="complementary_market" name="complementary_market[]" class="form-control select2-multiple col-xs-12" multiple>
                             <?php foreach(StartupHelper::getCategoryOptions() as $key => $option): ?>
                                     <option value="<?= $key ?>"><?= $option; ?></option>
                             <?php endforeach; ?>
@@ -295,8 +290,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                 <div class="row">
                     <div class="col-sm-6 inline-block ">
                         <label> Momento atual </label>
-                        <select id="current_moment" name="current_moment" class="form-control" required>
-                            <option>Selecione...</option>
+                        <select id="current_moment" name="current_moment" class="form-control required" required>
+                            <option value="">Selecione uma opção</option>
                             <option value="0">Estou vendendo e ganhando escala</option>
                             <option value="1">O MVP está pronto e sendo validado com o mercado</option>
                             <option value="2">Estou na fase de operação: desenvolvendo minha solução e estudando o mercado
@@ -310,8 +305,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
                     <div class="col-sm-6 inline-block ">
                         <label> Público alvo principal </label>
-                        <select id="target_audience" name="target_audience" class="form-control" required>
-                            <option>Selecione...</option>
+                        <select id="target_audience" name="target_audience" class="form-control required" required>
+                            <option value="">Selecione uma opção</option>
                             <option value="0">B2B</option>
                             <option value="1">B2C</option>
                             <option value="2">C2C</option>
@@ -325,8 +320,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                 <div class="row">
                     <div class="col-sm-6 inline-block ">
                         <label> Modelo de Negócios </label>
-                        <select id="business_model" name="business_model" class="form-control" required>
-                            <option>Selecione...</option>
+                        <select id="business_model" name="business_model" class="form-control required" required>
+                            <option value="">Selecione uma opção</option>
                             <option value="0">SAAS (Software as a service)</option>
                             <option value="1">Aplicativo</option>
                             <option value="2">Marketplace</option>
@@ -338,8 +333,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
                     <div class="col-sm-6 inline-block ">
                         <label> Modelo de receita </label>
-                        <select id="revenue_model" name="revenue_model" class="form-control" required>
-                            <option>Selecione...</option>
+                        <select id="revenue_model" name="revenue_model" class="form-control required" required>
+                            <option value="">Selecione uma opção</option>
                             <option value="0">Premium (pagou, levou)</option>
                             <option value="1">Freemium (parte gratís, parte paga)</option>
                             <option value="2">Assinatura</option>
@@ -361,8 +356,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                 <div class="row">
                     <div class="col-sm-6 inline-block ">
                         <label> Sua startup já recebeu investimento? </label>
-                        <select id="is_invested" name="is_invested" class="form-control" required>
-                            <option>Selecione...</option>
+                        <select id="is_invested" name="is_invested" class="form-control required" required>
+                            <option value="">Selecione uma opção</option>
                             <option value="0">Não</option>
                             <option value="1">Sim</option>
                         </select>
@@ -371,8 +366,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
                     <div class="col-sm-6 inline-block ">
                         <label> Busca investimento para avanço da startup?</label>
-                        <select id="looking_for_investment" name="looking_for_investment" class="form-control" required>
-                            <option>Selecione...</option>
+                        <select id="looking_for_investment" name="looking_for_investment" class="form-control required" required>
+                            <option value="">Selecione uma opção</option>
                             <option value="0">No momento não, pretendo trabalhar com recursos próprios</option>
                             <option value="1">Sim, mas caso não aconteça continuarei com recursos próprios</option>
                             <option value="2"> Sim, sem investimento não tenho como perseverar.</option>
@@ -385,8 +380,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                     <div class="col-sm-6 inline-block ">
                         <label> No caso de ser investido, como pretende aplicar o recurso?
                         </label>
-                        <select id="investment_data" name="investment_data" class="form-control" required>
-                            <option>Selecione...</option>
+                        <select id="investment_data" name="investment_data" class="form-control required" required>
+                            <option value="">Selecione uma opção</option>
                             <option value="0">Aplicar em marketing para aquisição de clientes </option>
                             <option value="1">Pretendo aumentar minha equipe</option>
                             <option value="2">Vou investir em pesquisa e desenvolvimento que melhore meu produto/serviço</option>
@@ -417,10 +412,10 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
                 <div class="row">
                     <div class="col-sm-8 inline-block "><input type="text" name="street" placeholder="Endereço"
-                                                               class="form-control " required/></div>
+                                                               class="form-control required" required/></div>
 
                     <div class="col-sm-4 inline-block "><input type="text" name="number" placeholder="Número"
-                                                               class="form-control " required/></div>
+                                                               class="form-control required" required/></div>
                 </div>
 
                 <div class="row">
@@ -428,15 +423,15 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                                                                class="form-control " /></div>
 
                     <div class="col-sm-6 inline-block "><input type="text" name="neighborhood" placeholder="Bairro"
-                                                              class="form-control " required/></div>
+                                                              class="form-control required" required/></div>
                 </div>
 
 
                 <div class="row">
                     <div class="col-sm-6 inline-block "><input type="text" name="city" placeholder="Cidade"
-                                                               class="form-control " required /></div>
+                                                               class="form-control required" required /></div>
 
-                    <div class="col-sm-6 inline-block "><select name="uf" class="form-control from-control-lg" style="height: 100%!important" required>
+                    <div class="col-sm-6 inline-block "><select name="uf" class="form-control from-control-lg required" style="height: 100%!important" required>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
                             <option value="AP">Amapá</option>
