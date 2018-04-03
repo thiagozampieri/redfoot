@@ -141,9 +141,9 @@ class IndexController
         return $this->counter;
     }
 
-    public function getEvents()
+    public function getEvents($limit=10)
     {
-        return $this->facebookEvent;
+        return array_slice($this->facebookEvent, 0, $limit);
     }
 
     public function getCategory()

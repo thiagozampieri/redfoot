@@ -97,7 +97,7 @@ $ic = new IndexController();
 
 <div style="margin: 20px 0px 20px 0px;">
     <div class="container">
-        <h2>Nossos eventos</h2>
+        <h2>Nossos últimos eventos</h2>
         <ul class="row">
             <?php foreach ($ic->getEvents() as $event) { $start_time = new DateTime($event->start_time);?>
             <div class="row list-group-item col-sm-6 inline-block">
