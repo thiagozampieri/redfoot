@@ -475,7 +475,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
         </form>
 
     </div>
-</div>c
+</div>
 
 <script type="text/javascript">
     jQuery.extend(jQuery.validator.messages, {

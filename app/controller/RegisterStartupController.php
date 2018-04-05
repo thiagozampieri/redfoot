@@ -31,6 +31,10 @@ class RegisterStartupController
                 $data->$key = htmlspecialchars($_POST[$key]);
         }
 
+        echo "<pre>";
+        print_r($v_keys);
+        echo "</pre>";
+
         if ($data->password != $data->confirm_password) {
             Message::msgError("As senhas não combinam");
         } else {
@@ -117,6 +121,8 @@ class RegisterStartupController
                 } else {
                     Message::msgError("Não foi possível fazer o upload de arquivo!");
                 }
+            } else {
+                echo 'AQUI';
             }
 
             if ($startup->id > 0) {
