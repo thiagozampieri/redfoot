@@ -32,13 +32,15 @@ class RegisterStartupController
         }
 
         echo "<pre>";
-        print_r($v_keys);
+        print_r($data);
         echo "</pre>";
 
         if ($data->password != $data->confirm_password) {
             Message::msgError("As senhas não combinam");
         } else {
             $startup = Startup::find($data->startup_id);
+
+            print_r($startup);
             if ($startup->id != $data->startup_id) {
 
                 $uploaddir = 'media/';
