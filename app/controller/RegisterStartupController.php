@@ -27,8 +27,11 @@ class RegisterStartupController
         $v_keys = array_keys($_POST);
 
         foreach ($v_keys as $key) {
-            if ($key != 'action')
+            if ($key != 'action' & $key != 'complementary_market')
                 $data->$key = htmlspecialchars($_POST[$key]);
+
+            elseif ($key == 'complementary_market')
+                $data->$key = ($_POST[$key]);
         }
 
         echo "<pre>";
@@ -41,7 +44,9 @@ class RegisterStartupController
             $startup = Startup::find($data->startup_id);
 
             print_r($startup);
-            if ($startup->id != $data->startup_id) {
+            echo is_null($startup);
+            echo 'teste';
+            if (is_null($startup) || $startup->id != $data->startup_id) {
 
                 $uploaddir = 'media/';
                 $image_path = $uploaddir . md5(basename($_FILES['file']['name'])) . basename($_FILES['file']['name']);
