@@ -55,24 +55,24 @@ $_categories = $ic->getCategories();
 
 <div id="filter">
     <div class="container">
-        <?foreach ($_categories as $category){?>
+        <?php foreach ($_categories as $category){?>
         <div class="flip-container vertical" ontouchstart="this.classList.toggle('hover');">
             <div class="flipper">
                 <div class="front" style="background-color: <?=Util::getColor()?>">
-                    <span class="name"><?=$category->name?></span>
+                    <span class="name"><?php echo $category->name?></span>
                 </div>
                 <div class="back">
-                    <div class="name"><?=$category->name?></div>
+                    <div class="name"><?php echo $category->name?></div>
                     <hr/>
                     <div class="col-xs-12">Quantidade de Startups: </div>
-                    <div class="col-xs-12"><strong><?=$category->quantity?></strong></div>
+                    <div class="col-xs-12"><strong><?php echo $category->quantity?></strong></div>
                     <div class="col-xs-12">% Representa: </div>
-                    <div class="col-xs-12"><strong><?=number_format($category->percentual, 2, ',', '.')?></strong></div>
-                    <div class="text-center"><a class="btn btn-success" href="map?category=<?=$category->id?>">Quero Ver</a></div>
+                    <div class="col-xs-12"><strong><?php echo number_format($category->percentual, 2, ',', '.')?></strong></div>
+                    <div class="text-center"><a class="btn btn-success" href="map?category=<?php echo $category->id?>">Quero Ver</a></div>
                 </div>
             </div>
         </div>
-        <?}?>
+        <?php }?>
 
 <!--
         <div class="row h-100 text-center">
