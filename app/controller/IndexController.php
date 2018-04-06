@@ -146,9 +146,9 @@ class IndexController
         krsort($v_data);
         $_keys = array_keys($v_data);
 
-        $i=(sizeof($_keys)>10)?10:sizeof($_keys);
+        $i=(sizeof($_keys)>10)?10:sizeof($_keys)-1;
 
-        while($i>=0){
+        while($i>0){
             $object = new stdClass();
             $object->id = $_keys[$i];
             $object->name = $_categories[$object->id];
