@@ -146,7 +146,7 @@ class IndexController
         krsort($v_data);
         $_keys = array_keys($v_data);
 
-        $i=(sizeof($_keys)>10)?10:sizeof($_keys)-1;
+        $i=(sizeof($_keys)>10)?10:sizeof($_keys);
 
         while($i>=0){
             $object = new stdClass();
