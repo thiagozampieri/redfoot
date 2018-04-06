@@ -143,7 +143,7 @@ class IndexController
 
         }
 
-        ksort($v_data);
+        krsort($v_data);
         $_keys = array_keys($v_data);
 
         $i=(sizeof($_keys)>10)?10:sizeof($_keys)-1;
