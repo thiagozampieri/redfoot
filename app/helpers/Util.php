@@ -55,4 +55,35 @@ class Util
         return $str;
     }
 
+    static function getColor(){
+        $_color = array();
+        $_color[] = '#ff0000';
+        $_color[] = '#ff4000';
+        $_color[] = '#ff8000';
+        $_color[] = '#ffbf00';
+        $_color[] = '#ffff00';
+        $_color[] = '#bfff00';
+        $_color[] = '#80ff00';
+        $_color[] = '#40ff00';
+        $_color[] = '#00ff00';
+        $_color[] = '#00ff40';
+        $_color[] = '#00ff80';
+        $_color[] = '#00ffbf';
+        $_color[] = '#00ffff';
+        $_color[] = '#00bfff';
+        $_color[] = '#0080ff';
+        $_color[] = '#0040ff';
+        $_color[] = '#0000ff';
+        $_color[] = '#4000ff';
+        $_color[] = '#8000ff';
+        $_color[] = '#bf00ff';
+        $_color[] = '#ff00ff';
+        $_color[] = '#ff00bf';
+        $_color[] = '#ff0080';
+        $_color[] = '#ff0040';
+        $_color[] = '#ff0000';
+
+        return $_color[rand(0, sizeof($_color))];
+    }
+
 }

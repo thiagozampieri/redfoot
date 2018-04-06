@@ -2,6 +2,7 @@
 
 <?php
 $ic = new IndexController();
+$_categories = $ic->getCategories();
 ?>
 
 <script type="application/javascript">
@@ -54,6 +55,26 @@ $ic = new IndexController();
 
 <div id="filter">
     <div class="container">
+        <?foreach ($_categories as $category){?>
+        <div class="flip-container vertical" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front" style="background-color: <?=Util::getColor()?>">
+                    <span class="name"><?=$category->name?></span>
+                </div>
+                <div class="back">
+                    <div class="name"><?=$category->name?></div>
+                    <hr/>
+                    <div class="col-xs-12">Quantidade de Startups: </div>
+                    <div class="col-xs-12"><strong><?=$category->quantity?></strong></div>
+                    <div class="col-xs-12">% Representa: </div>
+                    <div class="col-xs-12"><strong><?=number_format($category->percentual, 2, ',', '.')?></strong></div>
+                    <div class="text-center"><a class="btn btn-success" href="map?category=<?=$category->id?>">Quero Ver</a></div>
+                </div>
+            </div>
+        </div>
+        <?}?>
+
+<!--
         <div class="row h-100 text-center">
             <div class="row col-sm-4"><a class="col-sm-12 rfbox img-responsive healthtech" href="map?category=5,33"><div class="rf-align-baseline">healthtech</div></a></div>
             <div class="row col-sm-8">
@@ -66,7 +87,9 @@ $ic = new IndexController();
             <a class="col-sm-3 rfbox img-responsive proptech" href="map?category=9,21"><div class="rf-align-baseline">proptech</div></a>
             </div>
         </div>
+-->
     </div>
+
 </div>
 
 <div id="contanier" class="background-red">

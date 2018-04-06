@@ -88,7 +88,7 @@ class IndexController
             {
                 //print_r($address);
 
-                if (($address->lat == null & $address->lng == null))
+                if (($address->lat == null & $address->lng == null) && $address->uf == 'PR')
                 {
 
                     $geolocation = Geolocation::getByAddress($address);
@@ -123,6 +123,43 @@ class IndexController
             $this->_data = $_data;
         }
         return $this;
+    }
+
+    public function getCategories() {
+        $_data = array();
+        $v_data = array();
+
+        $_categories = StartupHelper::getCategoryOptions();
+        $startups = Startup::where(array(
+            'status' => true,
+        ));
+        while($startup = $startups->next()){
+            //echo "<pre>";
+            //print_r($startup->business);
+            //$business = new Business();
+            //$business->main_market = intval($data->main_market);
+
+            $v_data[$startup->business->main_market]++;
+
+        }
+
+        ksort($v_data);
+        $_keys = array_keys($v_data);
+
+        $i=(sizeof($_keys)>10)?10:sizeof($_keys)-1;
+
+        while($i>=0){
+            $object = new stdClass();
+            $object->id = $_keys[$i];
+            $object->name = $_categories[$object->id];
+            $object->quantity = $v_data[$object->id];
+            $object->percentual = $object->quantity/$startups->count()*100;
+            $i--;
+
+            $_data[] = $object;
+        }
+
+        return $_data;
     }
 
     public function getCoordinates()
