@@ -148,7 +148,7 @@ class IndexController
         $_keys = array_keys($v_data);
 
         $i=sizeof($_keys);
-        $f=($i>=10)?1:0;
+        $f=($i>9)?1:0;
 
         $subtotal = $total;
 
