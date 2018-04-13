@@ -150,7 +150,7 @@ class IndexController
         $i=sizeof($_keys);
         $subtotal = $total;
 
-        while($i>0){
+        while($i>1){
             $object = new stdClass();
             $object->id = $_keys[$i];
             $object->name = $_categories[$object->id];
