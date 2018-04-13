@@ -147,7 +147,7 @@ class IndexController
         krsort($v_data);
         $_keys = array_keys($v_data);
 
-        $i=sizeof($_keys);
+        $i=sizeof($_keys)-1;
         $subtotal = $total;
 
         while($i>0){
