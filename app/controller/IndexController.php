@@ -128,6 +128,7 @@ class IndexController
     public function getCategories() {
         $_data = array();
         $v_data = array();
+        $total = 0;
 
         $_categories = StartupHelper::getCategoryOptions();
         $startups = Startup::where(array(
@@ -140,15 +141,17 @@ class IndexController
             //$business->main_market = intval($data->main_market);
 
             $v_data[$startup->business->main_market]++;
-
+            $total++;
         }
 
         krsort($v_data);
         $_keys = array_keys($v_data);
 
-        $i=(sizeof($_keys)>10)?10:sizeof($_keys)-1;
+        $i=(sizeof($_keys)>=10)?9:sizeof($_keys)-1;
 
-        while($i>0){
+        $subtotal = $total;
+
+        while($i>=0){
             $object = new stdClass();
             $object->id = $_keys[$i];
             $object->name = $_categories[$object->id];
@@ -156,6 +159,17 @@ class IndexController
             $object->percentual = $object->quantity/$startups->count()*100;
             $i--;
 
+            $_data[] = $object;
+
+            $subtotal = $subtotal - $object->quantity;
+        }
+
+        if ($subtotal > 0) {
+            $object = new stdClass();
+            $object->id = "";
+            $object->name = "Outras";
+            $object->quantity = $subtotal;
+            $object->percentual = $subtotal / $startups->count() * 100;
             $_data[] = $object;
         }
 

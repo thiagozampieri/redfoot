@@ -3,6 +3,7 @@
 <?php
 $ic = new IndexController();
 $_categories = $ic->getCategories();
+$events = $ic->getEvents();
 ?>
 
 <script type="application/javascript">
@@ -12,7 +13,7 @@ $_categories = $ic->getCategories();
     })
 </script>
 
-<?php include_once "carousel.php"; ?>
+<?php //include_once "carousel.php"; ?>
 
 <div id="map"></div>
 
@@ -118,11 +119,12 @@ $_categories = $ic->getCategories();
     </div>
 </div>
 
+<?php if(sizeof($events) > 0){?>
 <div style="margin: 20px 0px 20px 0px;">
     <div class="container">
         <h2>Nossos últimos eventos</h2>
         <ul class="row">
-            <?php foreach ($ic->getEvents() as $event) { $start_time = new DateTime($event->start_time);?>
+            <?php foreach ($events as $event) { $start_time = new DateTime($event->start_time);?>
             <div class="row list-group-item col-sm-6 inline-block">
                 <div class="row col-sm-12 inline-block"><span class="col-sm-12"><label><?=$start_time->format('d')?></label>/<label><?=$start_time->format('m')?></label>/<label><?=$start_time->format('Y')?></label> <small><?=$start_time->format('H:i')?>h</small></span></div>
                 <div class="row col-sm-12">
@@ -135,7 +137,7 @@ $_categories = $ic->getCategories();
         </ul>
     </div>
 </div>
-
+<?php }?>
 
 <div id="contact" class="background-red">
     <div class="container">

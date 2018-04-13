@@ -55,8 +55,13 @@ class Util
         return $str;
     }
 
+    private static $g_color = 0;
     static function getColor(){
         $_color = array();
+
+        $_color[] = '#ff5050';
+        $_color[] = '#ffffff';
+        /*
         $_color[] = '#ff0000';
         $_color[] = '#ff4000';
         $_color[] = '#ff8000';
@@ -84,6 +89,12 @@ class Util
         $_color[] = '#ff0000';
 
         return $_color[rand(0, sizeof($_color))];
+        */
+
+        self::$g_color++;
+
+        $tmp = (self::$g_color % 2) ? 1 : 0;
+        return $_color[$tmp];
     }
 
 }
