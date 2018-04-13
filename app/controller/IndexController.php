@@ -148,17 +148,15 @@ class IndexController
         $_keys = array_keys($v_data);
 
         $i=sizeof($_keys);
-        $f=($i>9)?1:0;
-
         $subtotal = $total;
 
-        while($i>$f){
+        while($i>0){
             $object = new stdClass();
             $object->id = $_keys[$i];
             $object->name = $_categories[$object->id];
             $object->quantity = $v_data[$object->id];
             $object->percentual = $object->quantity/$startups->count()*100;
-            $i--;
+            --$i;
 
             $_data[] = $object;
 
