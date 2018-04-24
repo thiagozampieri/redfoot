@@ -12,7 +12,7 @@ class Geolocation
         {
             $address  = $loc->street.',';
             $address .= $loc->number.',';
-            $address .= $loc->complement.',';
+            //$address .= $loc->complement.',';
             $address .= $loc->neighborhood.',';
             $address .= $loc->zipcode.',';
             $address .= $loc->city.',';

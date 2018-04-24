@@ -18,8 +18,7 @@ class IndexController
         self::getCountersOfDatas();
     }
 
-    public function getCountersOfDatas()
-    {
+    public function getCountersOfDatas() {
         $entrepreneurs = Entrepreneur::all()->count();
         $startups = Startup::where(array('status' => true))->count();
         $companies = Startup::where(array('status' => true, 'is_formalized' => true))->count();
@@ -83,15 +82,11 @@ class IndexController
         {
             //echo "<pre>";
             //print_r($startup->business);
+            foreach ($startup->address as $address) {
 
-            foreach ($startup->address as $address)
-            {
-                //print_r($address);
-
-                if (($address->lat == null & $address->lng == null) && $address->uf == 'PR')
-                {
-
+                if (($address->lat == null & $address->lng == null)) {
                     $geolocation = Geolocation::getByAddress($address);
+
                     if (($geolocation->lat != null & $geolocation->lng != null)) {
                         $address2 = Address::where(array('startup_id' => $address->startup_id, 'type' => $address->type))->updateAttributes(
                             array(
@@ -104,13 +99,13 @@ class IndexController
                     }
 
                 }
-                ;
 
                 if (($address->lat != null & $address->lng != null)) {
                     $_data[] =
                         array('label' => $startup->name,
                             'icon' => $startup->image_path,
                             'category' => $startup->business->main_market,
+                            'categories' => json_decode($startup->business->complementary_market, true),
                             'address' => $address->street . ', ' . $address->number . ', ' . $address->complement . ', ' . $address->neighborhood . ', ' . $address->zipcode . ', ' . $address->city . ' / ' . $address->uf,
                             'coordinates' => array(
                                 'lat' => (double)$address->lat, 'lng' => (double)$address->lng,
@@ -140,11 +135,18 @@ class IndexController
             //$business = new Business();
             //$business->main_market = intval($data->main_market);
 
+            $_market = json_decode($startup->business->complementary_market);
+
+            foreach ($_market as $market){
+                $v_data[$market]++;
+                $total++;
+            }
+
             $v_data[$startup->business->main_market]++;
             $total++;
         }
 
-        krsort($v_data);
+        asort($v_data);
         $_keys = array_keys($v_data);
 
         $i=sizeof($_keys)-1;
@@ -177,14 +179,7 @@ class IndexController
         return $_data;
     }
 
-    public function getCoordinates()
-    {
-        /*$_data = array();
-        foreach ($this->_data as $v_data)
-        {
-            $_data[] = $v_data['coordinates'];
-        }
-        */
+    public function getCoordinates() {
         return $this->_data;
     }
 
@@ -198,8 +193,7 @@ class IndexController
         return array_slice($this->facebookEvent, 0, $limit);
     }
 
-    public function getCategory()
-    {
+    public function getCategory() {
         $v_categories = (isset($_GET['category'])) ? explode(",", $_GET['category']) : array();
         $_categories = array();
         foreach($v_categories as $v_cat => $value) $_categories[$value] = true;

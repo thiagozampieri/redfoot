@@ -34,6 +34,7 @@ var initMap = function(map_id) {
              //label: location.label,
              title: location.label,
              category: location.category,
+             categories: location.categories,
              address: location.address,
          });
 
@@ -44,7 +45,14 @@ var initMap = function(map_id) {
              var markerContent = '<div id="content" class="row">' +
                  '<div class="col-sm-2"><img src="'+this.image+'" width="100"/></div>' +
                  '<div class="col-sm-10">' +
-                 '<div class="col-sm-12"><div class="badge badge-danger">'+_categories[this.category]+'</div></div>' +
+                 '<div class="col-sm-12"><div class="badge badge-danger">'+_categories[this.category]+'</div>';
+             if (this.categories && this.categories.length > 0) {
+                 this.categories.forEach(function(category_secundary){
+                     markerContent += '<div class="badge badge-info">'+_categories[category_secundary]+'</div>';
+                 });
+             }
+
+             markerContent += '</div>' +
                  '<div class="row col-sm-12"><label class="col-sm-12">'+this.title+'</label></div>' +
                  '<div class="col-sm-12">'+this.address+'</div>' +
                  '</div>'+
