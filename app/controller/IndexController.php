@@ -97,15 +97,18 @@ class IndexController
                         $address->lat = $geolocation->lat;
                         $address->lng = $geolocation->lng;
                     }
-
                 }
 
                 if (($address->lat != null & $address->lng != null)) {
+                    $_markets = json_decode($startup->business->complementary_market, true);
+                    if (!in_array($startup->business->main_market, $_markets)) $_markets[] = $startup->business->main_market;
+
                     $_data[] =
                         array('label' => $startup->name,
                             'icon' => $startup->image_path,
                             'category' => $startup->business->main_market,
                             'categories' => json_decode($startup->business->complementary_market, true),
+                            'markets' => $_markets,
                             'address' => $address->street . ', ' . $address->number . ', ' . $address->complement . ', ' . $address->neighborhood . ', ' . $address->zipcode . ', ' . $address->city . ' / ' . $address->uf,
                             'coordinates' => array(
                                 'lat' => (double)$address->lat, 'lng' => (double)$address->lng,
@@ -205,8 +208,7 @@ class IndexController
 function countFilter($data)
 {
     global $key;
-    if ($data[category] == $key)
-        return $data;
+    if (in_array($key, $data['markets'])) return $data;
 }
 
 function mountLink($texto)

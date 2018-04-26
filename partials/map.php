@@ -6,21 +6,29 @@ $_categories = $ic->getCategory();
 ?>
 
 <script type="application/javascript">
+
     function map_filter(data) {
         var field1 = $('*[name='+this.field1+']').val();
         if (field1 != undefined & field1 != ''){
-            if (field1 instanceof Array)
-            {
-                var test =  field1.indexOf(data[this.field2]) != -1;
+            var field2 = data[this.field2];
+            var test = false;
+            if (field2 instanceof Array) {
+                field2.forEach(function (field) {
+                    if (field1 instanceof Array) {
+                        field1.forEach(function (temp) {
+                            if (temp == field) test = true;
+                        });
+                    } else {
+                        test = field.search(new RegExp(field1, "i")) != -1;
+                    }
+                });
+            } else {
+                test = field2.search(new RegExp(field1, "i")) != -1;
             }
-            else
-            {
-                var test = data[this.field2].search(new RegExp(field1, "i")) != -1;
-
+            if (test) {
+                return data;
             }
-            if (test) return data;
-        }
-        else{
+        } else {
             return data;
         }
         return false;
@@ -29,11 +37,11 @@ $_categories = $ic->getCategory();
     var locs = <?=json_encode($ic->getCoordinates(),JSON_UNESCAPED_UNICODE)?>;
     var locations = [];
     function filterFilter(){
-        locations = locs.filter(map_filter, {field1: 'name', field2: 'label'}).filter(map_filter, {field1: 'main_market', field2: 'category'});
+        locations = locs.filter(map_filter, {field1: 'main_market', field2: 'markets'}).filter(map_filter, {field1: 'name', field2: 'label'});
+        console.log(locations, locs);
         if (locations.length > 0) {
             initMap('map2');
-        }
-        else {
+        } else {
             alert('Infelizmente não temos startups com essa busca');
         }
     }
