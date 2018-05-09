@@ -17,6 +17,8 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 ?>
 
 <script type="text/javascript" src="<?=Config::getUrlBase()?>bower_components/jquery-validation/dist/jquery.validate.js"></script>
+
+
 <div id="fh5co-startup-register">
     <div id="contanier" class="startup-register-form background-red">
         <?php Message::showMessage(); ?>
@@ -166,7 +168,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
 
                 <div class="row">
                     <div class="col-sm-6 inline-block "><input type="text" name="start_date" placeholder="Início"
-                                                               class="form-control date"/></div>
+                                                               class="form-control"/></div>
                 </div>
 
 
@@ -206,7 +208,7 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
                     <div class="row">
                         <div class="col-sm-6 inline-block "><input type="text" name="foundation_date"
                                                                    placeholder="Data de fundação"
-                                                                   class="form-control date"/>
+                                                                   class="form-control"/>
                         </div>
                         <div class="col-sm-6 inline-block "><input type="text" name="contact_name"
                                                                    placeholder="Nome de contato"
@@ -498,7 +500,23 @@ if (isset($_POST['action']) && $_POST['action'] != '') {
         min: jQuery.validator.format("Por favor, forne&ccedil;a um valor maior ou igual a {0}.")
     });
 
+    $.validator.addMethod(
+        "australianDate",
+        function(value, element) {
+            // put your own logic here, this is just a (crappy) example
+            return value.match(/^\d\d?\/\d\d?\/\d\d\d\d$/);
+        },
+        "Por favor, forne&ccedil;a uma data v&aacute;lida."
+    );
+
+    $("*[name=start_date]").mask("99/99/9999");
+    $("*[name=foundation_date]").mask("99/99/9999");
+
     $("#myForm").validate({
+        rules : {
+            start_date : { australianDate : true },
+            foundation_date : { australianDate : true }
+        },
         submitHandler: function(form) {
             form.submit();
         }
