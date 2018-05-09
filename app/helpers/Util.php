@@ -8,10 +8,7 @@
  */
 
 
-
-
-class Util
-{
+class Util {
     /**
      * Formata de 00/00/0000 para 0000-00-00
      * @param $date
@@ -20,10 +17,10 @@ class Util
     static function formatDate($date){
         if($date !== '') {
             $date = explode('/', $date);
-            return $date[2] . '-' . $date[1] . '-' . $date[0];
-        }else{
-            return '1970-01-01';
+
+            if (checkdate($date[1],$date[2],$date[0])) return $date[2] . '-' . $date[1] . '-' . $date[0];
         }
+        return '1970-01-01';
     }
 
     /**
