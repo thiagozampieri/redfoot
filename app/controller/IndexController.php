@@ -155,7 +155,7 @@ class IndexController
         $i=sizeof($_keys)-1;
         $subtotal = $total;
 
-        $f=($i>9)?1:0;
+        $f=($i>9)?($i-9):0;
 
         while($i>$f){
             $object = new stdClass();
