@@ -60,7 +60,11 @@ $events = $ic->getEvents();
         <div class="flip-container vertical" ontouchstart="this.classList.toggle('hover');">
             <div class="flipper">
                 <div class="front" style="background-color: <?=Util::getColor()?>">
+                    <?php if($category->id == 0){?>
                     <span class="name"><?php echo $category->name?></span>
+                    <?php } else {?>
+                    <img src="images/thumb/<?php echo str_pad($category->id, 2, "0", STR_PAD_LEFT)?>.jpg" height="200" width="200"/>
+                    <?php }?>
                 </div>
                 <div class="back">
                     <div class="name"><?php echo $category->name?></div>

@@ -48,15 +48,13 @@ class IndexController
         }
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://graph.facebook.com/v2.10/RedfootStartups/events?access_token=1552012431558424|4HsNfdtOdfV3TcAYveBPQGR4Rhw");
+        curl_setopt($ch, CURLOPT_URL, "https://graph.facebook.com/v3.0/RedfootStartups/events?access_token=EAAWDjA2rhxgBAHbC7CfThp0R0Q9IWgtykmQxh0F8cnHgEGdiZB5f79ZAyRrZBQCEnzhtPM6aYFKSjCsGNfSXZA4FSgRf7Nej3DZB6KZC6oIrhADV4RKIm0jucVW6SJDhzRDzrQZAZC1citcAwejuwHNoZCbgbvzE4vWiG5TDwUsjxnAZDZD");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = json_decode(curl_exec($ch));
         curl_close($ch);
 
         $this->facebookEvent = $output->data;
         $meetups = sizeof($this->facebookEvent);
-
-
 
         $counter = new stdClass();
 
