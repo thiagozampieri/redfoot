@@ -48,7 +48,7 @@ class IndexController
         }
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://graph.facebook.com/v3.0/RedfootStartups/events?access_token=EAAWDjA2rhxgBAHbC7CfThp0R0Q9IWgtykmQxh0F8cnHgEGdiZB5f79ZAyRrZBQCEnzhtPM6aYFKSjCsGNfSXZA4FSgRf7Nej3DZB6KZC6oIrhADV4RKIm0jucVW6SJDhzRDzrQZAZC1citcAwejuwHNoZCbgbvzE4vWiG5TDwUsjxnAZDZD");
+        curl_setopt($ch, CURLOPT_URL, "https://graph.facebook.com/v3.2/RedfootStartups/events?access_token=EAAWDjA2rhxgBAEcZAlPYbqqICrQsxDYVMZAVm8YZAd9RZCVJCGrwoYZAGam6tPpJM15C0ZBi27LsAIsZAZAvdI4EspDKMPzC2fuGgDhJpdMuchFsVay1CcCU6WZCkDlpPcAkAaJXkZB83RPbSHop0LtZBuePSAKq4KaVaHzdpRzawvHZC8avji44XdYQrZAUZB2MAj6YveF1dKjGLo8AZDZD");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = json_decode(curl_exec($ch));
         curl_close($ch);
